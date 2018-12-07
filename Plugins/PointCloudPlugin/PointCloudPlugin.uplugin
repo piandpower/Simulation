@@ -1,0 +1,29 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.4.2",
+	"FriendlyName": "Point Cloud Plugin",
+	"Description": "Adds support for importing, processing and rendering of point clouds.",
+	"Category": "Rendering",
+	"CreatedBy": "Michal Cieciura",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "https://trello.com/b/rQ1SCygB/pointcloudplugin-roadmap",
+	"EngineVersion": "4.19.0",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "PointCloudRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		},
+		{
+			"Name": "PointCloudEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}

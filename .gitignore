@@ -1,0 +1,14 @@
+.vs
+Binaries/
+Config/
+Saved/
+Intermediate/
+
+Content/Developers/*.*
+Content/Levels/3D/City.umap
+Content/Levels/3D/City_BuiltData.uasset
+
+Plugins/PointCloudPlugin/Binaries/
+Plugins/PointCloudPlugin/Intermediate/
+
+Content/Geometry/Terrain.uasset
