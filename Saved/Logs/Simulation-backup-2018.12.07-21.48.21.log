@@ -1,0 +1,505 @@
+﻿Log file open, 12/07/18 21:41:00
+LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)
+LogWindows: File 'aqProf.dll' does not exist
+LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)
+LogWindows: File 'VtuneApi.dll' does not exist
+LogWindows: Failed to load 'VtuneApi32e.dll' (GetLastError=126)
+LogWindows: File 'VtuneApi32e.dll' does not exist
+LogInit: Display: Running engine for game: Simulation
+LogPlatformFile: Not using cached read wrapper
+LogInit: Display: RandInit(520909753) SRandInit(520909753).
+LogInit: Read version file with build ID '3944462'
+LogInit: Overriding engine version to CL 4033788, compatible CL 3944462
+LogInit: Registered custom module enumerator with build ID '3944462'
+LogTaskGraph: Started task graph with 5 named threads and 35 total threads with 3 sets of task threads.
+LogStats: Stats thread started at 0.786974
+LogD3D11RHI: Aftermath initialized
+LogICUInternationalization: Display: ICU TimeZone Detection - Raw Offset: +1:00, Platform Override: ''
+LogPluginManager: Mounting plugin Paper2D
+LogPluginManager: Mounting plugin LiveLink
+LogPluginManager: Mounting plugin LightPropagationVolume
+LogPluginManager: Mounting plugin CLionSourceCodeAccess
+LogPluginManager: Mounting plugin CodeLiteSourceCodeAccess
+LogPluginManager: Mounting plugin GitSourceControl
+LogPluginManager: Mounting plugin KDevelopSourceCodeAccess
+LogPluginManager: Mounting plugin NullSourceCodeAccess
+LogPluginManager: Mounting plugin PerforceSourceControl
+LogPluginManager: Mounting plugin SubversionSourceControl
+LogPluginManager: Mounting plugin UObjectPlugin
+LogPluginManager: Mounting plugin VisualStudioCodeSourceCodeAccess
+LogPluginManager: Mounting plugin VisualStudioSourceCodeAccess
+LogPluginManager: Mounting plugin XCodeSourceCodeAccess
+LogPluginManager: Mounting plugin AssetManagerEditor
+LogPluginManager: Mounting plugin CryptoKeys
+LogPluginManager: Mounting plugin DataValidation
+LogPluginManager: Mounting plugin FacialAnimation
+LogPluginManager: Mounting plugin GameplayTagsEditor
+LogPluginManager: Mounting plugin MobileLauncherProfileWizard
+LogPluginManager: Mounting plugin PluginBrowser
+LogPluginManager: Mounting plugin SpeedTreeImporter
+LogPluginManager: Mounting plugin DatasmithContent
+LogPluginManager: Mounting plugin AlembicImporter
+LogPluginManager: Mounting plugin CharacterAI
+LogPluginManager: Mounting plugin HTML5Networking
+LogPluginManager: Mounting plugin AndroidMedia
+LogPluginManager: Mounting plugin AvfMedia
+LogPluginManager: Mounting plugin ImgMedia
+LogPluginManager: Mounting plugin LinearTimecode
+LogPluginManager: Mounting plugin MediaCompositing
+LogPluginManager: Mounting plugin MediaPlayerEditor
+LogPluginManager: Mounting plugin WmfMedia
+LogPluginManager: Mounting plugin TcpMessaging
+LogPluginManager: Mounting plugin UdpMessaging
+LogPluginManager: Mounting plugin ActorSequence
+LogPluginManager: Mounting plugin LevelSequenceEditor
+LogPluginManager: Mounting plugin MatineeToLevelSequence
+LogPluginManager: Mounting plugin NetcodeUnitTest
+LogPluginManager: Mounting plugin NUTUnrealEngine4
+LogPluginManager: Mounting plugin OnlineSubsystemGooglePlay
+LogPluginManager: Mounting plugin OnlineSubsystemIOS
+LogPluginManager: Mounting plugin OnlineSubsystem
+LogPluginManager: Mounting plugin OnlineSubsystemNull
+LogPluginManager: Mounting plugin OnlineSubsystemUtils
+LogPluginManager: Mounting plugin AndroidDeviceProfileSelector
+LogPluginManager: Mounting plugin AndroidMoviePlayer
+LogPluginManager: Mounting plugin AndroidPermission
+LogPluginManager: Mounting plugin AppleARKit
+LogPluginManager: Mounting plugin AppleMoviePlayer
+LogPluginManager: Mounting plugin ArchVisCharacter
+LogPluginManager: Mounting plugin AudioCapture
+LogPluginManager: Mounting plugin CableComponent
+LogPluginManager: Mounting plugin CustomMeshComponent
+LogPluginManager: Mounting plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting plugin GoogleCloudMessaging
+LogPluginManager: Mounting plugin ImmediatePhysics
+LogPluginManager: Mounting plugin IOSDeviceProfileSelector
+LogPluginManager: Mounting plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting plugin LocationServicesBPLibrary
+LogPluginManager: Mounting plugin MobilePatchingUtils
+LogPluginManager: Mounting plugin OculusVR
+LogPluginManager: Plugin shader directory ../../../Engine/Plugins/Runtime/Oculus/OculusVR/Shaders found
+LogPluginManager: Mapping shader source directory ../../../Engine/Plugins/Runtime/Oculus/OculusVR/Shaders to virtual directory /Plugin/OculusVR
+LogPluginManager: Mounting plugin PhysXVehicles
+LogPluginManager: Mounting plugin ProceduralMeshComponent
+LogPluginManager: Mounting plugin RuntimePhysXCooking
+LogPluginManager: Mounting plugin SteamVR
+LogPluginManager: Mounting plugin WindowsMoviePlayer
+LogPluginManager: Mounting plugin PointCloudPlugin
+LogPluginManager: Plugin shader directory ../../../../../Studium/Fluide/Simulation/Plugins/PointCloudPlugin/Shaders found
+LogPluginManager: Mapping shader source directory ../../../../../Studium/Fluide/Simulation/Plugins/PointCloudPlugin/Shaders to virtual directory /Plugin/PointCloudPlugin
+LogStreaming: Display: Took  0.097s to configure plugins.
+LogModuleManager: Display: Found up-to-date module file ../../../../../Studium/Fluide/Simulation/Binaries/Win64/UE4Editor-Simulation.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/2D/Paper2D/Binaries/Win64/UE4Editor-Paper2D.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/2D/Paper2D/Binaries/Win64/UE4Editor-Paper2DEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/2D/Paper2D/Binaries/Win64/UE4Editor-PaperSpriteSheetImporter.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/2D/Paper2D/Binaries/Win64/UE4Editor-PaperTiledImporter.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/2D/Paper2D/Binaries/Win64/UE4Editor-SmartSnapping.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Animation/LiveLink/Binaries/Win64/UE4Editor-LiveLink.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Animation/LiveLink/Binaries/Win64/UE4Editor-LiveLinkEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Blendables/LightPropagationVolume/Binaries/Win64/UE4Editor-LightPropagationVolumeRuntime.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Blendables/LightPropagationVolume/Binaries/Win64/UE4Editor-LightPropagationVolumeEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/CLionSourceCodeAccess/Binaries/Win64/UE4Editor-CLionSourceCodeAccess.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/GitSourceControl/Binaries/Win64/UE4Editor-GitSourceControl.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/PerforceSourceControl/Binaries/Win64/UE4Editor-PerforceSourceControl.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/SubversionSourceControl/Binaries/Win64/UE4Editor-SubversionSourceControl.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/UObjectPlugin/Binaries/Win64/UE4Editor-UObjectPlugin.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/VisualStudioCodeSourceCodeAccess/Binaries/Win64/UE4Editor-VisualStudioCodeSourceCodeAccess.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Developer/VisualStudioSourceCodeAccess/Binaries/Win64/UE4Editor-VisualStudioSourceCodeAccess.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/AssetManagerEditor/Binaries/Win64/UE4Editor-AssetManagerEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/CryptoKeys/Binaries/Win64/UE4Editor-CryptoKeys.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/CryptoKeys/Binaries/Win64/UE4Editor-CryptoKeysOpenSSL.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/DataValidation/Binaries/Win64/UE4Editor-DataValidation.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/FacialAnimation/Binaries/Win64/UE4Editor-FacialAnimation.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/FacialAnimation/Binaries/Win64/UE4Editor-FacialAnimationEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/GameplayTagsEditor/Binaries/Win64/UE4Editor-GameplayTagsEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/MobileLauncherProfileWizard/Binaries/Win64/UE4Editor-MobileLauncherProfileWizard.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/PluginBrowser/Binaries/Win64/UE4Editor-PluginBrowser.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Editor/SpeedTreeImporter/Binaries/Win64/UE4Editor-SpeedTreeImporter.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Enterprise/DatasmithContent/Binaries/Win64/UE4Editor-DatasmithContent.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Experimental/AlembicImporter/Binaries/Win64/UE4Editor-AlembicImporter.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Experimental/AlembicImporter/Binaries/Win64/UE4Editor-AlembicLibrary.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Experimental/CharacterAI/Binaries/Win64/UE4Editor-CharacterAI.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Experimental/HTML5Networking/Binaries/Win64/UE4Editor-HTML5Networking.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/AndroidMedia/Binaries/Win64/UE4Editor-AndroidMediaEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/AndroidMedia/Binaries/Win64/UE4Editor-AndroidMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/AvfMedia/Binaries/Win64/UE4Editor-AvfMediaEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/AvfMedia/Binaries/Win64/UE4Editor-AvfMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/AvfMedia/Binaries/Win64/UE4Editor-AvfMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/ImgMedia/Binaries/Win64/UE4Editor-ImgMedia.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/ImgMedia/Binaries/Win64/UE4Editor-ImgMediaEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/ImgMedia/Binaries/Win64/UE4Editor-ImgMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/ImgMedia/Binaries/Win64/UE4Editor-ImgMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/ImgMedia/Binaries/Win64/UE4Editor-OpenExrWrapper.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/LinearTimecode/Binaries/Win64/UE4Editor-LinearTimecode.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/MediaCompositing/Binaries/Win64/UE4Editor-MediaCompositing.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/MediaCompositing/Binaries/Win64/UE4Editor-MediaCompositingEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/MediaPlayerEditor/Binaries/Win64/UE4Editor-MediaPlayerEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMedia.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMediaEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Media/WmfMedia/Binaries/Win64/UE4Editor-WmfMediaFactory.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Messaging/TcpMessaging/Binaries/Win64/UE4Editor-TcpMessaging.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Messaging/UdpMessaging/Binaries/Win64/UE4Editor-UdpMessaging.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/MovieScene/ActorSequence/Binaries/Win64/UE4Editor-ActorSequence.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/MovieScene/LevelSequenceEditor/Binaries/Win64/UE4Editor-LevelSequenceEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/MovieScene/MatineeToLevelSequence/Binaries/Win64/UE4Editor-MatineeToLevelSequence.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/NetcodeUnitTest/NetcodeUnitTest/Binaries/Win64/UE4Editor-NetcodeUnitTest.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/NetcodeUnitTest/NUTUnrealEngine4/Binaries/Win64/UE4Editor-NUTUnrealEngine4.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Online/OnlineSubsystem/Binaries/Win64/UE4Editor-OnlineSubsystem.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Online/OnlineSubsystemNull/Binaries/Win64/UE4Editor-OnlineSubsystemNull.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Online/OnlineSubsystemUtils/Binaries/Win64/UE4Editor-OnlineSubsystemUtils.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Online/OnlineSubsystemUtils/Binaries/Win64/UE4Editor-OnlineBlueprintSupport.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/AndroidDeviceProfileSelector/Binaries/Win64/UE4Editor-AndroidDeviceProfileSelector.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/AndroidPermission/Binaries/Win64/UE4Editor-AndroidPermission.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/AppleARKit/Binaries/Win64/UE4Editor-AppleARKit.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ArchVisCharacter/Binaries/Win64/UE4Editor-ArchVisCharacter.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/AudioCapture/Binaries/Win64/UE4Editor-AudioCapture.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/AudioCapture/Binaries/Win64/UE4Editor-AudioCaptureEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/CableComponent/Binaries/Win64/UE4Editor-CableComponent.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/CustomMeshComponent/Binaries/Win64/UE4Editor-CustomMeshComponent.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ExampleDeviceProfileSelector/Binaries/Win64/UE4Editor-ExampleDeviceProfileSelector.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ImmediatePhysics/Binaries/Win64/UE4Editor-ImmediatePhysics.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ImmediatePhysics/Binaries/Win64/UE4Editor-ImmediatePhysicsEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/LocationServicesBPLibrary/Binaries/Win64/UE4Editor-LocationServicesBPLibrary.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/MobilePatchingUtils/Binaries/Win64/UE4Editor-MobilePatchingUtils.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/Oculus/OculusVR/Binaries/Win64/UE4Editor-OculusHMD.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/Oculus/OculusVR/Binaries/Win64/UE4Editor-OculusInput.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/Oculus/OculusVR/Binaries/Win64/UE4Editor-OculusEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/PhysXVehicles/Binaries/Win64/UE4Editor-PhysXVehicles.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/PhysXVehicles/Binaries/Win64/UE4Editor-PhysXVehiclesEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ProceduralMeshComponent/Binaries/Win64/UE4Editor-ProceduralMeshComponent.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/ProceduralMeshComponent/Binaries/Win64/UE4Editor-ProceduralMeshComponentEditor.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/RuntimePhysXCooking/Binaries/Win64/UE4Editor-RuntimePhysXCooking.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/Steam/SteamVR/Binaries/Win64/UE4Editor-SteamVR.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/Steam/SteamVR/Binaries/Win64/UE4Editor-SteamVRController.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../Engine/Plugins/Runtime/WindowsMoviePlayer/Binaries/Win64/UE4Editor-WindowsMoviePlayer.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../../../Studium/Fluide/Simulation/Plugins/PointCloudPlugin/Binaries/Win64/UE4Editor-PointCloudRuntime.dll (API version 3944462).
+LogModuleManager: Display: Found up-to-date module file ../../../../../Studium/Fluide/Simulation/Plugins/PointCloudPlugin/Binaries/Win64/UE4Editor-PointCloudEditor.dll (API version 3944462).
+LogInit: Using libcurl 7.47.1
+LogInit:  - built for x86_64-pc-win32
+LogInit:  - supports SSL with OpenSSL/1.0.2g
+LogInit:  - supports HTTP deflate (compression) using libz 1.2.8
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_IDN
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = false  - Libcurl will NOT verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+LogInit: WinSock: I am Slowy (192.168.178.44:0)
+LogInit: Build: ++UE4+Release-4.19-CL-4033788
+LogInit: Engine Version: 4.19.2-4033788+++UE4+Release-4.19
+LogInit: Compatible Engine Version: 4.19.0-3944462+++UE4+Release-4.19
+LogInit: Net CL: 3944462
+LogDevObjectVersion: Number of dev versions registered: 18
+LogDevObjectVersion:   Dev-Blueprints (B0D832E4-1F89-4F0D-ACCF-7EB736FD4AA2): 10
+LogDevObjectVersion:   Dev-Build (E1C64328-A22C-4D53-A36C-8E866417BD8C): 0
+LogDevObjectVersion:   Dev-Core (375EC13C-06E4-48FB-B500-84F0262A717E): 2
+LogDevObjectVersion:   Dev-Editor (E4B068ED-F494-42E9-A231-DA0B2E46BB41): 23
+LogDevObjectVersion:   Dev-Framework (CFFC743F-43B0-4480-9391-14DF171D2073): 33
+LogDevObjectVersion:   Dev-Mobile (B02B49B5-BB20-44E9-A304-32B752E40360): 2
+LogDevObjectVersion:   Dev-Networking (A4E4105C-59A1-49B5-A7C5-40C4547EDFEE): 0
+LogDevObjectVersion:   Dev-Online (39C831C9-5AE6-47DC-9A44-9C173E1C8E7C): 0
+LogDevObjectVersion:   Dev-Physics (78F01B33-EBEA-4F98-B9B4-84EACCB95AA2): 0
+LogDevObjectVersion:   Dev-Platform (6631380F-2D4D-43E0-8009-CF276956A95A): 0
+LogDevObjectVersion:   Dev-Rendering (12F88B9F-8875-4AFC-A67C-D90C383ABD29): 25
+LogDevObjectVersion:   Dev-Sequencer (7B5AE74C-D270-4C10-A958-57980B212A5A): 6
+LogDevObjectVersion:   Dev-VR (D7296918-1DD6-4BDD-9DE2-64A83CC13884): 1
+LogDevObjectVersion:   Dev-LoadTimes (C2A15278-BFE7-4AFE-6C17-90FF531DF755): 1
+LogDevObjectVersion:   Private-Geometry (6EACA3D4-40EC-4CC1-B786-8BED09428FC5): 2
+LogDevObjectVersion:   Dev-AnimPhys (29E575DD-E0A3-4627-9D10-D276232CDCEA): 16
+LogDevObjectVersion:   Dev-ReflectionCapture (6B266CEC-1EC7-4B8F-A30B-E4D90942FC07): 1
+LogDevObjectVersion:   Dev-Automation (0DF73D61-A23F-47EA-B727-89E90C41499A): 1
+LogInit: Compiled (64-bit): Apr 27 2018 02:06:57
+LogInit: Compiled with Visual C++: 19.00.24215.01
+LogInit: Build Configuration: Development
+LogInit: Branch Name: ++UE4+Release-4.19
+LogInit: Command Line:  -skipcompile
+LogInit: Base Directory: D:/Programme/UE_4.19/Engine/Binaries/Win64/
+LogInit: Installed Engine Build: 1
+LogStreaming: Display: Took  0.002s to delete old logs.
+LogInit: Presizing for max 8388607 objects, including 0 objects not considered by GC, pre-allocating 0 bytes for permanent pool.
+LogInit: Object subsystem initialized
+[2018.12.07-20.41.02:421][  0]LogInit: Selected Device Profile: [Windows]
+[2018.12.07-20.41.02:421][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2018.12.07-20.41.02:438][  0]LogInit: Computer: SLOWY
+[2018.12.07-20.41.02:438][  0]LogInit: User: Timo
+[2018.12.07-20.41.02:438][  0]LogInit: CPU Page size=4096, Cores=6
+[2018.12.07-20.41.02:438][  0]LogInit: High frequency timer resolution =3.119136 MHz
+[2018.12.07-20.41.02:438][  0]LogMemory: Memory total: Physical=16.0GB (16GB approx)
+[2018.12.07-20.41.02:439][  0]LogMemory: Platform Memory Stats for Windows
+[2018.12.07-20.41.02:439][  0]LogMemory: Process Physical Memory: 276.61 MB used, 276.61 MB peak
+[2018.12.07-20.41.02:439][  0]LogMemory: Process Virtual Memory: 273.47 MB used, 273.47 MB peak
+[2018.12.07-20.41.02:439][  0]LogMemory: Physical Memory: 7225.58 MB used,  9109.90 MB free, 16335.48 MB total
+[2018.12.07-20.41.02:439][  0]LogMemory: Virtual Memory: 4813.59 MB used,  9109.90 MB free, 134217728.00 MB total
+[2018.12.07-20.41.02:478][  0]LogInit: Using OS detected language (de-DE).
+[2018.12.07-20.41.02:478][  0]LogInit: Using OS detected locale (de-DE).
+[2018.12.07-20.41.02:481][  0]LogTextLocalizationManager: No localization for 'de-DE' exists, so 'en' will be used for the language.
+[2018.12.07-20.41.02:981][  0]LogStreaming: Display: Took  0.503s to EndInitTextLocalization.
+[2018.12.07-20.41.02:981][  0]LogInit: Setting process to per monitor DPI aware
+[2018.12.07-20.41.03:032][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2018.12.07-20.41.03:032][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2018.12.07-20.41.03:261][  0]LogD3D11RHI: D3D11 adapters:
+[2018.12.07-20.41.03:318][  0]LogD3D11RHI:    0. 'Radeon (TM) RX 480 Graphics' (Feature Level 11_0)
+[2018.12.07-20.41.03:318][  0]LogD3D11RHI:       8137/0/8167 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:2, VendorId:0x1002
+[2018.12.07-20.41.03:323][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2018.12.07-20.41.03:323][  0]LogD3D11RHI:       0/0/8167 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2018.12.07-20.41.03:323][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2018.12.07-20.41.03:333][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2018.12.07-20.41.03:333][  0]LogD3D11RHI:     GPU DeviceId: 0x67df (for the marketing name, search the web for "GPU Device Id")
+[2018.12.07-20.41.03:333][  0]LogWindows: EnumDisplayDevices:
+[2018.12.07-20.41.03:333][  0]LogWindows:    0. 'Radeon (TM) RX 480 Graphics' (P:1 D:1)
+[2018.12.07-20.41.03:334][  0]LogWindows:    1. 'Radeon (TM) RX 480 Graphics' (P:0 D:1)
+[2018.12.07-20.41.03:334][  0]LogWindows:    2. 'Radeon (TM) RX 480 Graphics' (P:0 D:0)
+[2018.12.07-20.41.03:334][  0]LogWindows:    3. 'Radeon (TM) RX 480 Graphics' (P:0 D:0)
+[2018.12.07-20.41.03:334][  0]LogWindows:    4. 'Radeon (TM) RX 480 Graphics' (P:0 D:0)
+[2018.12.07-20.41.03:335][  0]LogWindows:    5. 'Radeon (TM) RX 480 Graphics' (P:0 D:0)
+[2018.12.07-20.41.03:335][  0]LogWindows:    6. 'Radeon (TM) RX 480 Graphics' (P:0 D:0)
+[2018.12.07-20.41.03:335][  0]LogWindows: DebugString: GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter GetVideoDriverDetailsInvalid PrimaryIsNotTheChoosenAdapter FoundDriverCount:0 
+[2018.12.07-20.41.03:335][  0]LogD3D11RHI:     Adapter Name: Radeon (TM) RX 480 Graphics
+[2018.12.07-20.41.03:335][  0]LogD3D11RHI:   Driver Version: Unknown (internal:Unknown, unified:Unknown)
+[2018.12.07-20.41.03:335][  0]LogD3D11RHI:      Driver Date: Unknown
+[2018.12.07-20.41.03:335][  0]LogRHI: Texture pool is 5695 MB (70% of 8137 MB)
+[2018.12.07-20.41.03:415][  0]LogD3D11RHI: Async texture creation enabled
+[2018.12.07-20.41.03:427][  0]LogD3D11RHI: GPU Timing Frequency: 25.000000 (Debug: 2 1)
+[2018.12.07-20.41.03:428][  0]LogShaderCompilers: Guid format shader working directory is 5 characters bigger than the processId version (../../../../../Studium/Fluide/Simulation/Intermediate/Shaders/WorkingDirectory/4460/).
+[2018.12.07-20.41.03:428][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/Timo/AppData/Local/Temp/UnrealShaderWorkingDir/11FD66D04C12B09ADECC3D95351250FB/'.
+[2018.12.07-20.41.03:662][  0]LogTemp: Display: Loaded TP AllDesktopTargetPlatform
+[2018.12.07-20.41.03:681][  0]LogTemp: Display: Loaded TP MacClientTargetPlatform
+[2018.12.07-20.41.03:699][  0]LogTemp: Display: Loaded TP MacNoEditorTargetPlatform
+[2018.12.07-20.41.03:721][  0]LogTemp: Display: Loaded TP MacServerTargetPlatform
+[2018.12.07-20.41.03:741][  0]LogTemp: Display: Loaded TP MacTargetPlatform
+[2018.12.07-20.41.03:761][  0]LogTemp: Display: Loaded TP WindowsClientTargetPlatform
+[2018.12.07-20.41.03:780][  0]LogTemp: Display: Loaded TP WindowsNoEditorTargetPlatform
+[2018.12.07-20.41.03:804][  0]LogTemp: Display: Loaded TP WindowsServerTargetPlatform
+[2018.12.07-20.41.03:813][  0]LogTemp: Display: Loaded TP WindowsTargetPlatform
+[2018.12.07-20.41.03:832][  0]LogTemp: Display: Loaded TP Android_ASTCTargetPlatform
+[2018.12.07-20.41.03:852][  0]LogTemp: Display: Loaded TP Android_ATCTargetPlatform
+[2018.12.07-20.41.03:870][  0]LogTemp: Display: Loaded TP Android_DXTTargetPlatform
+[2018.12.07-20.41.03:891][  0]LogTemp: Display: Loaded TP Android_ETC1aTargetPlatform
+[2018.12.07-20.41.03:913][  0]LogTemp: Display: Loaded TP Android_ETC1TargetPlatform
+[2018.12.07-20.41.03:930][  0]LogTemp: Display: Loaded TP Android_ETC2TargetPlatform
+[2018.12.07-20.41.03:965][  0]LogTemp: Display: Loaded TP Android_MultiTargetPlatform
+[2018.12.07-20.41.03:965][  0]LogTemp: Display: Loaded TP Android_PVRTCTargetPlatform
+[2018.12.07-20.41.03:986][  0]LogTemp: Display: Loaded TP AndroidTargetPlatform
+[2018.12.07-20.41.03:989][  0]LogTemp: Display: Loaded TP HTML5TargetPlatform
+[2018.12.07-20.41.04:038][  0]LogTemp: Display: Loaded TP IOSTargetPlatform
+[2018.12.07-20.41.04:056][  0]LogTemp: Display: Loaded TP TVOSTargetPlatform
+[2018.12.07-20.41.04:075][  0]LogTemp: Display: Loaded TP LinuxClientTargetPlatform
+[2018.12.07-20.41.04:093][  0]LogTemp: Display: Loaded TP LinuxNoEditorTargetPlatform
+[2018.12.07-20.41.04:112][  0]LogTemp: Display: Loaded TP LinuxServerTargetPlatform
+[2018.12.07-20.41.04:130][  0]LogTemp: Display: Loaded TP LinuxTargetPlatform
+[2018.12.07-20.41.04:130][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2018.12.07-20.41.04:297][  0]LogXGEController: Cleaning working directory: C:/Users/Timo/AppData/Local/Temp/UnrealXGEWorkingDir/
+[2018.12.07-20.41.04:297][  0]LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
+[2018.12.07-20.41.04:297][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+[2018.12.07-20.41.04:297][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2018.12.07-20.41.05:050][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2018.12.07-20.41.05:142][  0]LogDerivedDataCache: Loaded boot cache 0.09s 79MB C:/Users/Timo/AppData/Local/UnrealEngine/4.19/DerivedDataCache/Boot.ddc.
+[2018.12.07-20.41.05:142][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/Timo/AppData/Local/UnrealEngine/4.19/DerivedDataCache/Boot.ddc
+[2018.12.07-20.41.05:143][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../Studium/Fluide/Simulation/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2018.12.07-20.41.05:143][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2018.12.07-20.41.05:143][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../Studium/Fluide/Simulation/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2018.12.07-20.41.05:143][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2018.12.07-20.41.05:164][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2018.12.07-20.41.05:177][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Timo/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2018.12.07-20.41.05:177][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2018.12.07-20.41.05:177][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2018.12.07-20.41.05:191][  0]LogMaterial: Verifying Global Shaders for PCD3D_SM5
+[2018.12.07-20.41.05:191][  0]LogSlate: Using Freetype 2.6.0
+[2018.12.07-20.41.05:192][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2018.12.07-20.41.05:192][  0]LogSlate: SlateFontCache - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2018.12.07-20.41.05:323][  0]LogAssetRegistry: FAssetRegistry took 0.0307 seconds to start up
+[2018.12.07-20.41.05:722][  0]LogInit: Selected Device Profile: [Windows]
+[2018.12.07-20.41.05:892][  0]LogSimplygon: Simplygon DLL not present - disabling.
+[2018.12.07-20.41.05:897][  0]LogMeshReduction: Using SimplygonSwarm for distributed automatic mesh merging
+[2018.12.07-20.41.05:897][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2018.12.07-20.41.05:897][  0]LogMeshReduction: No automatic skeletal mesh reduction module available
+[2018.12.07-20.41.05:898][  0]LogMeshReduction: No automatic mesh merging module available
+[2018.12.07-20.41.05:898][  0]LogMeshMerging: No automatic mesh merging module available
+[2018.12.07-20.41.05:940][  0]LogNetVersion: Simulation , NetCL: 3944462, EngineNetVer: 2, GameNetVer: 0 (Checksum: 940632137)
+[2018.12.07-20.41.06:439][  0]LogPackageLocalizationCache: Processed 10 localized package path(s) for 1 prioritized culture(s) in 0.055884 seconds
+[2018.12.07-20.41.06:448][  0]LogUObjectArray: 37029 objects as part of root set at end of initial load.
+[2018.12.07-20.41.06:448][  0]LogUObjectAllocator: 7386192 out of 0 bytes used by permanent object pool.
+[2018.12.07-20.41.06:448][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2018.12.07-20.41.08:229][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2018.12.07-20.41.08:260][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2018.12.07-20.41.08:693][  0]SourceControl: Source control is disabled
+[2018.12.07-20.41.08:693][  0]SourceControl: Source control is disabled
+[2018.12.07-20.41.08:712][  0]SourceControl: Source control is disabled
+[2018.12.07-20.41.08:731][  0]SourceControl: Source control is disabled
+[2018.12.07-20.41.09:263][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2018.12.07-20.41.09:455][  0]LogOcInput: OculusInput pre-init called
+[2018.12.07-20.41.09:604][  0]LogEngine: Initializing Engine...
+[2018.12.07-20.41.09:606][  0]LogHMD: Failed to initialize OpenVR with code 110
+[2018.12.07-20.41.09:608][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: Construct from data asset -  0.000 s
+[2018.12.07-20.41.09:608][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: GameplayTagTreeChangedEvent.Broadcast -  0.000 s
+[2018.12.07-20.41.09:853][  0]LogAIModule: Creating AISystem for world Untitled
+[2018.12.07-20.41.09:879][  0]LogInit: XAudio2 using '4 - SAMSUNG (AMD High Definition Audio Device)' : 2 channels at 48 kHz using 16 bits per sample (channel mask 0x3)
+[2018.12.07-20.41.09:898][  0]LogInit: FAudioDevice initialized.
+[2018.12.07-20.41.09:997][  0]LogDerivedDataCache: Saved boot cache 0.10s 79MB C:/Users/Timo/AppData/Local/UnrealEngine/4.19/DerivedDataCache/Boot.ddc.
+[2018.12.07-20.41.10:015][  0]LogInit: Texture streaming: Enabled
+[2018.12.07-20.41.10:044][  0]LogEngineSessionManager: EngineSessionManager initialized
+[2018.12.07-20.41.10:054][  0]LogInit: Transaction tracking system initialized
+[2018.12.07-20.41.10:086][  0]BlueprintLog: New page: Editor Load
+[2018.12.07-20.41.10:214][  0]LocalizationService: Localization service is disabled
+[2018.12.07-20.41.10:314][  0]LogLinker: Warning: Can't find file '/Game/TopDownBP/TopDownOverview'
+[2018.12.07-20.41.10:314][  0]LogLinker: Warning: Can't find file '/Game/TopDownBP/TopDownOverview'
+[2018.12.07-20.41.10:314][  0]LogUObjectGlobals: Warning: Failed to find object 'Class /Game/TopDownBP/TopDownOverview.TopDownOverview_C'
+[2018.12.07-20.41.10:347][  0]LogConsoleResponse: Display: 
+[2018.12.07-20.41.10:506][  0]LogCook: Display: Max memory allowance for cook 16384mb min free memory 0mb
+[2018.12.07-20.41.10:507][  0]LogCook: Display: Mobile HDR setting 1
+[2018.12.07-20.41.10:507][  0]LogGameplayTags: Display: UGameplayTagsManager::DoneAddingNativeTags. DelegateIsBound: 0
+[2018.12.07-20.41.10:507][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: Construct from data asset -  0.000 s
+[2018.12.07-20.41.10:507][  0]LogStats: UGameplayTagsManager::ConstructGameplayTagTree: GameplayTagTreeChangedEvent.Broadcast -  0.000 s
+[2018.12.07-20.41.10:516][  0]LogFileCache: Scanning file cache for directory 'D:/Studium/Fluide/Simulation/Content/' took 0.01s
+[2018.12.07-20.41.10:907][  0]SourceControl: Source control is disabled
+[2018.12.07-20.41.10:907][  0]Cmd: MAP LOAD FILE="../../../../../Studium/Fluide/Simulation/Content/Levels/3D/Waterfall.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2018.12.07-20.41.10:907][  0]LightingResults: New page: Lighting Build
+[2018.12.07-20.41.10:910][  0]MapCheck: New page: Map Check
+[2018.12.07-20.41.10:910][  0]LightingResults: New page: Lighting Build
+[2018.12.07-20.41.11:032][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5e1457c0, Size=208, Default__SimulationSettings_C Function /Game/Blueprints/SimulationSettings.SimulationSettings_C:ExecuteUbergraph_SimulationSettings
+[2018.12.07-20.41.11:035][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5df97800, Size=936, Default__SimulationPawn_C Function /Game/Blueprints/SimulationPawn.SimulationPawn_C:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.41.11:052][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5dfc7400, Size=232, Default__Anzeige_C Function /Game/Widget/Anzeige.Anzeige_C:ExecuteUbergraph_Anzeige
+[2018.12.07-20.41.11:138][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5dfc7400, Size=232
+[2018.12.07-20.41.11:138][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5dfcd700, Size=232, Default__Anzeige_C Function /Engine/Transient.REINST_Anzeige_C_0:ExecuteUbergraph_Anzeige
+[2018.12.07-20.41.11:140][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5df97800, Size=936
+[2018.12.07-20.41.11:140][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5df97800, Size=936, Default__SimulationPawn_C Function /Engine/Transient.REINST_SimulationPawn_C_5:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.41.11:141][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5e1457c0, Size=208
+[2018.12.07-20.41.11:141][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c3bb703a0, Size=208, Default__SimulationSettings_C Function /Engine/Transient.REINST_SimulationSettings_C_6:ExecuteUbergraph_SimulationSettings
+[2018.12.07-20.41.11:190][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c3c060f00, Size=232, Default__Anzeige_C Function /Game/Widget/Anzeige.Anzeige_C:ExecuteUbergraph_Anzeige
+[2018.12.07-20.41.11:196][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c3bff3800, Size=936, Default__SimulationPawn_C Function /Game/Blueprints/SimulationPawn.SimulationPawn_C:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.41.11:202][  0]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5dee6240, Size=208, Default__SimulationSettings_C Function /Game/Blueprints/SimulationSettings.SimulationSettings_C:ExecuteUbergraph_SimulationSettings
+[2018.12.07-20.41.11:519][  0]LogAIModule: Creating AISystem for world Waterfall
+[2018.12.07-20.41.11:529][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2018.12.07-20.41.11:550][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c3bb703a0, Size=208
+[2018.12.07-20.41.11:551][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5df97800, Size=936
+[2018.12.07-20.41.11:551][  0]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5dfcd700, Size=232
+[2018.12.07-20.41.11:553][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2018.12.07-20.41.11:604][  0]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 51,265ms to complete.
+[2018.12.07-20.41.11:604][  0]LogFileHelpers: Loading map 'Waterfall' took 0.698
+[2018.12.07-20.41.11:783][  0]LogCollectionManager: Loaded 0 collections in 0.001292 seconds
+[2018.12.07-20.41.11:838][  0]LogFileCache: Scanning file cache for directory 'D:/Studium/Fluide/Simulation/Saved/Collections/' took 0.01s
+[2018.12.07-20.41.11:839][  0]LogFileCache: Scanning file cache for directory 'D:/Studium/Fluide/Simulation/Content/Developers/Timo/Collections/' took 0.01s
+[2018.12.07-20.41.11:839][  0]LogFileCache: Scanning file cache for directory 'D:/Studium/Fluide/Simulation/Content/Collections/' took 0.01s
+[2018.12.07-20.41.11:839][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000001 seconds
+[2018.12.07-20.41.11:853][  0]LogContentBrowser: Native class hierarchy populated in 0.0140 seconds. Added 2496 classes and 576 folders.
+[2018.12.07-20.41.11:861][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0018 seconds. Added 0 classes and 0 folders.
+[2018.12.07-20.41.11:907][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0018 seconds. Added 0 classes and 0 folders.
+[2018.12.07-20.41.11:916][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0024 seconds. Added 1 classes and 2 folders.
+[2018.12.07-20.41.11:935][  0]LogSlate: Took 0.000214 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2018.12.07-20.41.11:938][  0]LogSlate: Took 0.000199 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2018.12.07-20.41.11:945][  0]LogSlate: Took 0.000238 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2018.12.07-20.41.12:056][  0]LogRenderer: Reallocating scene render targets to support 1208x600 Format 10 NumSamples 1 (Frame:1).
+[2018.12.07-20.41.12:248][  0]LogContentBrowser: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0020 seconds. Added 0 classes and 0 folders.
+[2018.12.07-20.41.12:249][  0]LogLoad: (Engine Initialization) Total time: 13.62 seconds
+[2018.12.07-20.41.12:249][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2018.12.07-20.41.12:273][  0]LogWindowsTextInputMethodSystem: Display: IME system now deactivated.
+[2018.12.07-20.41.12:291][  0]LogContentStreaming: Texture pool size now 3000 MB
+[2018.12.07-20.41.12:334][  0]LogSlate: Took 0.000160 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2018.12.07-20.41.12:359][  1]LogAssetRegistry: Asset discovery search completed in 7.0606 seconds
+[2018.12.07-20.41.12:361][  1]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000000 seconds (found 0 objects)
+[2018.12.07-20.41.12:361][  1]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000147 seconds (updated 0 objects)
+[2018.12.07-20.41.15:690][383]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2018.12.07-20.41.15:884][405]LogSlate: Took 0.000258 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2018.12.07-20.41.16:192][405]LogContentBrowser: Native class hierarchy updated for 'BlueprintGraph' in 0.0025 seconds. Added 116 classes and 0 folders.
+[2018.12.07-20.41.16:593][405]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c094d5720, Size=4, Default__SKEL_PROTO_BP_AnimBlueprint_0_C Function /Engine/Transient.SKEL_PROTO_BP_AnimBlueprint_0_C:ExecuteUbergraph_PROTO_BP_AnimBlueprint_0
+[2018.12.07-20.41.16:594][405]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c094d5718, Size=4, Default__PROTO_BP_AnimBlueprint_0_C Function /Engine/Transient.PROTO_BP_AnimBlueprint_0_C:ExecuteUbergraph_PROTO_BP_AnimBlueprint_0
+[2018.12.07-20.41.17:303][405]LogSlate: Took 0.000235 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2018.12.07-20.41.17:712][406]LogSlate: Took 0.000604 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2018.12.07-20.41.58:421][348]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c10ab5688, Size=4, Default__SKEL_SimulationPawn_C Function /Game/Blueprints/SimulationPawn.SKEL_SimulationPawn_C:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.44.23:604][233]BlueprintLog: New page: Compile SimulationPawn
+[2018.12.07-20.44.23:645][233]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c10ab5688, Size=4
+[2018.12.07-20.44.23:645][233]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c802e8a70, Size=4, Default__SKEL_SimulationPawn_C Function /Engine/Transient.REINST_SKEL_SimulationPawn_C_27:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.44.23:688][233]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c3bff3800, Size=936
+[2018.12.07-20.44.23:688][233]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c86434800, Size=936, Default__SimulationPawn_C Function /Engine/Transient.REINST_SimulationPawn_C_29:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.44.23:711][233]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c86436c00, Size=1024, Default__SimulationPawn_C Function /Game/Blueprints/SimulationPawn.SimulationPawn_C:ExecuteUbergraph_SimulationPawn
+[2018.12.07-20.44.23:961][233]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c802e8a70, Size=4
+[2018.12.07-20.44.24:277][240]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Blueprints/SimulationPawn" FILE="../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationPawn.uasset" SILENT=true
+[2018.12.07-20.44.24:405][240]LogSavePackage: Save=116.52ms
+[2018.12.07-20.44.24:406][240]LogSavePackage: Moving '../../../../../Studium/Fluide/Simulation/Saved/SimulationPawn311C37FD4AF353A54A320D90FCB581B1.tmp' to '../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationPawn.uasset'
+[2018.12.07-20.44.24:410][240]LogSavePackage: Display: Finished SavePackage ../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationPawn.uasset
+[2018.12.07-20.44.31:354][ 25]LogAIModule: Creating AISystem for world PeriodicShearWave
+[2018.12.07-20.44.31:375][ 25]Cmd: MAP LOAD FILE="../../../../../Studium/Fluide/Simulation/Content/Levels/2D/PeriodicShearWave.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2018.12.07-20.44.31:375][ 25]LightingResults: New page: Lighting Build
+[2018.12.07-20.44.31:376][ 25]LoadErrors: New page: Loading map: PeriodicShearWave.umap
+[2018.12.07-20.44.31:377][ 25]MapCheck: New page: Map Check
+[2018.12.07-20.44.31:377][ 25]LightingResults: New page: Lighting Build
+[2018.12.07-20.44.31:399][ 25]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2018.12.07-20.44.31:457][ 25]Cmd: MAP CHECKDEP NOCLEARLOG
+[2018.12.07-20.44.31:517][ 25]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 60,457ms to complete.
+[2018.12.07-20.44.31:518][ 25]LogFileHelpers: Loading map 'PeriodicShearWave' took 0.144
+[2018.12.07-20.45.46:871][633]BlueprintLog: New page: Compile SimulationSettings
+[2018.12.07-20.45.46:991][633]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c5dee6240, Size=208
+[2018.12.07-20.45.46:991][633]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c6bdf8aa0, Size=208, Default__SimulationSettings_C Function /Engine/Transient.REINST_SimulationSettings_C_36:ExecuteUbergraph_SimulationSettings
+[2018.12.07-20.45.47:004][633]LogUObjectGlobals: Created PersistentFrame Addr=0x0000018c5e1466a0, Size=208, Default__SimulationSettings_C Function /Game/Blueprints/SimulationSettings.SimulationSettings_C:ExecuteUbergraph_SimulationSettings
+[2018.12.07-20.45.47:268][633]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c86434800, Size=936
+[2018.12.07-20.45.47:583][656]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Blueprints/SimulationSettings" FILE="../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationSettings.uasset" SILENT=true
+[2018.12.07-20.45.47:697][656]LogSavePackage: Save=103.52ms
+[2018.12.07-20.45.47:697][656]LogSavePackage: Moving '../../../../../Studium/Fluide/Simulation/Saved/SimulationSettings55235D234B78FDE6D36FF49B11946B5D.tmp' to '../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationSettings.uasset'
+[2018.12.07-20.45.47:700][656]LogSavePackage: Display: Finished SavePackage ../../../../../Studium/Fluide/Simulation/Content/Blueprints/SimulationSettings.uasset
+[2018.12.07-20.45.49:192][824]LogTemp: Repeating last play command: Selected Viewport
+[2018.12.07-20.45.49:219][824]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.45.49:219][824]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2018.12.07-20.45.49:220][824]PIE: New page: PIE session: PeriodicShearWave (07.12.2018 22:45:49)
+[2018.12.07-20.45.49:220][824]LogPlayLevel: Creating play world package: /Game/Levels/2D/UEDPIE_0_PeriodicShearWave
+[2018.12.07-20.45.49:224][824]LogPlayLevel: PIE: StaticDuplicateObject took: (0.003644s)
+[2018.12.07-20.45.49:225][824]LogAIModule: Creating AISystem for world PeriodicShearWave
+[2018.12.07-20.45.49:225][824]LogPlayLevel: PIE: World Init took: (0.001442s)
+[2018.12.07-20.45.49:226][824]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/2D/PeriodicShearWave.PeriodicShearWave to /Game/Levels/2D/UEDPIE_0_PeriodicShearWave.PeriodicShearWave (0.005689s)
+[2018.12.07-20.45.49:258][824]LogInit: XAudio2 using '4 - SAMSUNG (AMD High Definition Audio Device)' : 2 channels at 48 kHz using 16 bits per sample (channel mask 0x3)
+[2018.12.07-20.45.49:270][824]LogInit: FAudioDevice initialized.
+[2018.12.07-20.45.49:324][824]LogLoad: Game class is 'SimulationSettings_C'
+[2018.12.07-20.45.49:332][824]LogWorld: Bringing World /Game/Levels/2D/UEDPIE_0_PeriodicShearWave.PeriodicShearWave up for play (max tick rate 0) at 2018.12.07-21.45.49
+[2018.12.07-20.45.49:332][824]LogWorld: Bringing up level for play took: 0.001135
+[2018.12.07-20.45.49:340][824]LogContentBrowser: Native class hierarchy updated for 'MovieSceneCapture' in 0.0019 seconds. Added 11 classes and 0 folders.
+[2018.12.07-20.45.49:341][824]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
+[2018.12.07-20.45.49:341][824]LogGameState: Match State Changed from EnteringMap to WaitingToStart
+[2018.12.07-20.45.49:341][824]LogGameMode: Display: Match State Changed from WaitingToStart to InProgress
+[2018.12.07-20.45.49:400][824]LogGameState: Match State Changed from WaitingToStart to InProgress
+[2018.12.07-20.45.49:400][824]PIE: Play in editor start time for /Game/Levels/2D/UEDPIE_0_PeriodicShearWave -0,48
+[2018.12.07-20.45.49:401][824]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.45.51:007][997]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.45.51:047][997]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.45.52:954][217]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2018.12.07-20.46.02:781][121]LogEditor: Attempting to add actor of class 'ShearWaveVelocity' to level at 9.00,0.00,-64.00
+[2018.12.07-20.46.02:909][129]LogEditor: Attempting to add actor of class 'ShearWaveVelocity' to level at 8.00,0.00,-43.00
+[2018.12.07-20.46.04:026][220]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2018.12.07-20.46.07:868][635]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Levels/2D/PeriodicShearWave" FILE="../../../../../Studium/Fluide/Simulation/Content/Levels/2D/PeriodicShearWave.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2018.12.07-20.46.08:026][635]LogSavePackage: Save=126.87ms
+[2018.12.07-20.46.08:026][635]LogSavePackage: Moving '../../../../../Studium/Fluide/Simulation/Saved/PeriodicShearWave543378734513F48CBC8F5D9F86B22FC1.tmp' to '../../../../../Studium/Fluide/Simulation/Content/Levels/2D/PeriodicShearWave.umap'
+[2018.12.07-20.46.08:030][635]LogSavePackage: Display: Finished SavePackage ../../../../../Studium/Fluide/Simulation/Content/Levels/2D/PeriodicShearWave.umap
+[2018.12.07-20.46.10:160][807]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2018.12.07-20.46.10:215][811]LogTemp: Repeating last play command: Selected Viewport
+[2018.12.07-20.46.10:242][811]LogBlueprintUserMessages: Early PlayInEditor Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.46.10:242][811]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2018.12.07-20.46.10:242][811]PIE: New page: PIE session: PeriodicShearWave (07.12.2018 22:46:10)
+[2018.12.07-20.46.10:243][811]LogPlayLevel: Creating play world package: /Game/Levels/2D/UEDPIE_0_PeriodicShearWave
+[2018.12.07-20.46.10:246][811]LogPlayLevel: PIE: StaticDuplicateObject took: (0.002948s)
+[2018.12.07-20.46.10:247][811]LogAIModule: Creating AISystem for world PeriodicShearWave
+[2018.12.07-20.46.10:247][811]LogPlayLevel: PIE: World Init took: (0.001328s)
+[2018.12.07-20.46.10:247][811]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Levels/2D/PeriodicShearWave.PeriodicShearWave to /Game/Levels/2D/UEDPIE_0_PeriodicShearWave.PeriodicShearWave (0.004739s)
+[2018.12.07-20.46.10:261][811]LogUObjectGlobals: Destroyed PersistentFrame Addr=0x0000018c6bdf8aa0, Size=208
+[2018.12.07-20.46.10:270][811]LogInit: XAudio2 using '4 - SAMSUNG (AMD High Definition Audio Device)' : 2 channels at 48 kHz using 16 bits per sample (channel mask 0x3)
+[2018.12.07-20.46.10:280][811]LogInit: FAudioDevice initialized.
+[2018.12.07-20.46.10:321][811]LogLoad: Game class is 'SimulationSettings_C'
+[2018.12.07-20.46.10:322][811]LogWorld: Bringing World /Game/Levels/2D/UEDPIE_0_PeriodicShearWave.PeriodicShearWave up for play (max tick rate 0) at 2018.12.07-21.46.10
+[2018.12.07-20.46.10:323][811]LogWorld: Bringing up level for play took: 0.000826
+[2018.12.07-20.46.10:324][811]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
+[2018.12.07-20.46.10:324][811]LogGameState: Match State Changed from EnteringMap to WaitingToStart
+[2018.12.07-20.46.10:324][811]LogGameMode: Display: Match State Changed from WaitingToStart to InProgress
+[2018.12.07-20.46.10:374][811]LogGameState: Match State Changed from WaitingToStart to InProgress
+[2018.12.07-20.46.10:374][811]PIE: Play in editor start time for /Game/Levels/2D/UEDPIE_0_PeriodicShearWave 0,494
+[2018.12.07-20.46.10:375][811]LogBlueprintUserMessages: Late PlayInEditor Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.47.30:463][509]LogBlueprintUserMessages: Early EndPlayMap Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.47.30:506][509]LogBlueprintUserMessages: Late EndPlayMap Detection: Level '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel' has LevelScriptBlueprint '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave' with GeneratedClass '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave_C' with ClassGeneratedBy '/Game/Levels/2D/PeriodicShearWave.PeriodicShearWave:PersistentLevel.PeriodicShearWave'
+[2018.12.07-20.47.31:102][569]LogSlate: FSceneViewport::OnFocusLost() reason 0
+[2018.12.07-20.47.50:847][582]LogSelectionDetails: Warning: NavigateToFunctionSource:  Found symbols for [AScriptedVolume::SetEnabled] - File [d:\studium\fluide\simulation\source\simulation\volumes\scriptedvolume.cpp], Line [88], Column [0]

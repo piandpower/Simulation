@@ -1,0 +1,11 @@
+Discovering modules, targets and source code for project...
+@progress 'Binding IntelliSense data...' 0%
+WARNING: Exception while generating include data for UE4Editor: Unable to instantiate module 'SubstanceCore': System.NullReferenceException: Der Objektverweis wurde nicht auf eine Objektinstanz festgelegt.
+            bei UnrealBuildTool.Rules.SubstanceCore..ctor(ReadOnlyTargetRules Target) in d:\Programme\UE_4.19\Engine\Plugins\Marketplace\Substance\Source\SubstanceCore\SubstanceCore.Build.cs:Zeile 116.
+         (referenced via UE4Editor.Target.cs -> Substance.uplugin)
+@progress 'Binding IntelliSense data...' 50%
+@progress 'Binding IntelliSense data...' 100%
+@progress 'Writing project files...' 0%
+@progress 'Writing project files...' 33%
+@progress 'Writing project files...' 67%
+@progress 'Writing project files...' 100%

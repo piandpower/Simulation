@@ -1,7 +1,11 @@
 .vs
 Binaries/
 Config/
-Saved/
+Saved/Autosaves/
+Saved/Backup/
+Saved/Collections/
+Saved/Crashes/
+Saved/HardwareSurvey
 Intermediate/
 
 Content/Developers/*.*
