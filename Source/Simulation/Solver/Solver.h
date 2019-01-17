@@ -8,7 +8,8 @@
 #include "ParticleContext/ParticleContext.h"
 #include "Accelerations/Acceleration.h"
 #include "BoundaryPressure/BoundaryPressure.h"
-#include "SceneComponents/Fluid.h"
+#include "PressureGradient/PressureGradient.h"
+#include "ParticleContext/SceneComponents/Fluid.h"
 #include "Kernels/Kernel.h"
 #include "NeighborsFinders/NeighborsFinder.h"
 #include "Volumes/ScriptedVolume.h"
@@ -123,6 +124,7 @@ public:
 
 	UNeighborsFinder * GetNeighborsFinder() const;
 	UBoundaryPressure * GetBoundaryPressure() const;
+	UPressureGradient * GetPressureGradient() const;
 
 	UFUNCTION(BlueprintPure)
 	TArray<UAcceleration*> GetAccelerations() const;
@@ -161,6 +163,8 @@ protected:
 	ASimulator * Simulator;
 
 	UBoundaryPressure * BoundaryPressureComputer;
+
+	UPressureGradient * PressureGradientComputer;
 
 	bool FixedNextTimestep = false;
 

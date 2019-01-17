@@ -16,7 +16,7 @@ public:
 	~UDummySolver() override;
 
 	UFUNCTION(BlueprintPure, Category = "Solver")
-		static UDummySolver * CreateDummySolver(TArray<UAcceleration*> accelerations, UBoundaryPressure * boundaryPressure = nullptr, bool computeNeighborhoods = true, bool computeNonPressureAccelerations = false, bool computeScriptedVolumes = true);
+		static UDummySolver * CreateDummySolver(TArray<UAcceleration*> accelerations, UBoundaryPressure * boundaryPressure = nullptr, UPressureGradient * pressureGradient = nullptr, bool computeNeighborhoods = true, bool computeNonPressureAccelerations = false, bool computeScriptedVolumes = true);
 
 	void ComputePressure();
 

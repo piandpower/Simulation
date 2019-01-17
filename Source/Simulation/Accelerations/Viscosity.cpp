@@ -27,7 +27,7 @@ void UViscosity::ApplyAcceleration(UParticleContext * particleContext)
 
 				Vector3D vij = f.Velocity - ff.Velocity;
 				Vector3D xij = f.Position - ff.Position;
-				sum += ff.Fluid->GetViscosity() * ff.Mass / ff.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeKernelDerivative(f, ff)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
+				sum += ff.Fluid->GetViscosity() * ff.Mass / ff.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeGradient(f, ff)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
 
 			}
 
@@ -36,7 +36,7 @@ void UViscosity::ApplyAcceleration(UParticleContext * particleContext)
 				// Mimic ghost velocities
 				Vector3D vij = f.Velocity - fb.Velocity;
 				Vector3D xij = f.Position - fb.Position;
-				sum += fb.Border->BorderViscosity * fb.Mass / f.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeKernelDerivative(f, fb)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
+				sum += fb.Border->BorderViscosity * fb.Mass / f.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeGradient(f, fb)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
 			}
 
 			f.Acceleration += 2 * sum;

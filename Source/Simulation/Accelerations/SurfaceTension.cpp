@@ -23,7 +23,7 @@ void USurfaceTension::ApplyAcceleration(UParticleContext * particleContext)
 			Particle& f = fluid->Particles->at(i);
 			for (const Particle& ff : f.FluidNeighbors) {
 				if ((ff.Position - f.Position).Size() > particleContext->GetParticleDistance()) {
-					f.Acceleration += -SurfaceTensionFactor * ff.Mass * (f.Position - ff.Position).Normalized() * GetKernel()->ComputeKernel(f, ff);
+					f.Acceleration += -SurfaceTensionFactor * ff.Mass * (f.Position - ff.Position).Normalized() * GetKernel()->ComputeValue(f, ff);
 				}
 			}
 		});

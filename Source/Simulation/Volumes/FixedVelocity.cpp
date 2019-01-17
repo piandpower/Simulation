@@ -25,7 +25,9 @@ void AFixedVelocity::ApplyBeforeIntegration(UParticleContext & particleContext, 
 					particle.IsScripted = true;
 					particle.Acceleration = Vector3D(0.0);
 					particle.Velocity = Velocity;
-					particle.Position += timestep * particle.Velocity;
+					if (Integrate) {
+						particle.Position += timestep * particle.Velocity;
+					}
 				}
 			});
 		}

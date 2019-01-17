@@ -19,6 +19,7 @@ public:
 	static UNaiveNeighborsFinder * CreateNaiveNeighborsFinder();
 	
 	void FindNeighbors(const UParticleContext& particleContext, double supportLength, FNeighborsSearchRelations searchRelations = FNeighborsSearchRelations()) override;
+	FNeighborhood NeighborsOfPosition(const Vector3D& position, const UParticleContext& particleContext) const override;
 
 	void AddStaticParticles(UStaticBorder * borders, double supportLength) override;
 

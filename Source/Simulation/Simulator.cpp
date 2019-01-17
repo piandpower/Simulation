@@ -15,14 +15,20 @@ ASimulator::ASimulator()
 
 ASimulator::~ASimulator()
 {
-	delete NeighborsFinder;
-	delete Kernel;
-	delete RecordManager;
-	delete Solver;
-	delete ParticleContext;
 }
 
-void ASimulator::Initialize(UParticleContext * particleContext, USolver * solver, UKernel * kernelFunction, UNeighborsFinder * neighborsFinder, URecordManager * recordManager, TArray<AScriptedVolume*> volumes, float timestepFactor, float minTimestep, float maxTimestep, FString simulationName, bool adaptTimestepToFrameRecording, EDimensionality dimensionality)
+void ASimulator::Initialize(UParticleContext * particleContext,
+	USolver * solver,
+	UKernel * kernelFunction,
+	UNeighborsFinder * neighborsFinder,
+	URecordManager * recordManager,
+	TArray<AScriptedVolume*> volumes,
+	float timestepFactor,
+	float minTimestep,
+	float maxTimestep,
+	FString simulationName,
+	bool adaptTimestepToFrameRecording,
+	EDimensionality dimensionality)
 {
 	CFLNumber = timestepFactor;
 	MinTimestep = minTimestep;
@@ -253,8 +259,8 @@ void ASimulator::TestSimulation()
 			double densityj = 0;
 
 			for (const Particle& ff : particle.FluidNeighbors) {
-				densityj += ff.Mass * Kernel->ComputeKernel(particle.Position, ff.Position);
-				densityi += Kernel->ComputeKernel(particle, ff);
+				densityj += ff.Mass * Kernel->ComputeValue(particle.Position, ff.Position);
+				densityi += Kernel->ComputeValue(particle, ff);
 			}
 
 			densityi *= particle.Mass;
@@ -266,7 +272,7 @@ void ASimulator::TestSimulation()
 			double volume = pow(fluid->GetParticleContext()->GetParticleDistance(), 3);
 
 			for (const Particle& ff : particle.FluidNeighbors) {
-				kernelSum += Kernel->ComputeKernel(particle, ff);
+				kernelSum += Kernel->ComputeValue(particle, ff);
 			}
 
 			double testedDensity = particle.Mass / volume;
@@ -276,15 +282,15 @@ void ASimulator::TestSimulation()
 			// Test if KernelGradient is negated for opposite direction
 
 			for (const Particle& ff : particle.FluidNeighbors) {
-				Vector3D Gradient = Kernel->ComputeKernelDerivative(particle, ff);
-				Vector3D NegatedOppositeGradient = -Kernel->ComputeKernelDerivative(ff, particle);
+				Vector3D Gradient = Kernel->ComputeGradient(particle, ff);
+				Vector3D NegatedOppositeGradient = -Kernel->ComputeGradient(ff, particle);
 			}
 
 			// Test KernelGradient Sum, should be near {0, 0, 0} for particles in fluid
 
 			Vector3D kernelgradientSum = Vector3D(0, 0, 0);
 			for (const Particle& ff : particle.FluidNeighbors) {
-				kernelgradientSum += Kernel->ComputeKernelDerivative(particle, ff);
+				kernelgradientSum += Kernel->ComputeGradient(particle, ff);
 			}
 
 
@@ -296,7 +302,7 @@ void ASimulator::TestSimulation()
 
 			for (const Particle& ff : particle.FluidNeighbors) {
 				Vector3D positionDifference = (ff.Position - particle.Position);
-				Vector3D kernelGradient = GetKernel()->ComputeKernelDerivative(particle, ff);
+				Vector3D kernelGradient = GetKernel()->ComputeGradient(particle, ff);
 
 				column1 += positionDifference * kernelGradient.X;
 				column2 += positionDifference * kernelGradient.Y;
@@ -378,8 +384,8 @@ void ASimulator::Tick(float DeltaTime)
 			}
 			Solver->ComputeSolverStatistics(ComputeSolverStats);
 
+			// add one to the iteration count
 			IterationCount++;
-
 
 			// save the current state for recording. If frame needs to be captured exit the simulation loop
 			if (RecordManager->UpdateTimeAndRecordings(DeltaTime, IterationCount, SimulatedTime))

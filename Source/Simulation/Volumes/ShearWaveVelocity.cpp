@@ -37,7 +37,9 @@ void AShearWaveVelocity::ApplyBeforeIntegration(UParticleContext & particleConte
 					double velocityMagnitude = sin(projected * 0.1 * PI) * MaxVelocity;
 					particle.Acceleration = Vector3D(0.0);
 					particle.Velocity = GetActorForwardVector() * velocityMagnitude;
-					particle.Position += timestep * particle.Velocity;
+					if (Integrate) {
+						particle.Position += timestep * particle.Velocity;
+					} 		
 				}
 			});
 		}

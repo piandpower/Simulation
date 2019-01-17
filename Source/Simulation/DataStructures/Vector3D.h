@@ -65,8 +65,13 @@ public:
 	static Vector3D ProjectVector(const Vector3D& receiver, const Vector3D& shadower);
 	static double ProjectScalar(const Vector3D& receiver, const Vector3D& shadower);
 
+	// a string representation of the vector
 	std::string ToString() const;
 
+	// for printing
+	friend std::ostream& operator<< (std::ostream& stream, const Vector3D& v);
+
+	// Unsafe way of parsing a string back to a vector
 	static Vector3D FromString(std::string string);
 };
 

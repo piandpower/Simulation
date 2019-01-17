@@ -45,16 +45,29 @@ public:
 	static Matrix3D ElementwiseMultiplication(const Matrix3D & m1, const Matrix3D& m2);
 	static Matrix3D OuterProduct(const Vector3D& v1, const Vector3D& v2);
 
+	// transposes the matrix in place
 	void Transpose();
+
+	// Inverts the matrix
+	void Inverse();
+
+	// returns the transposed matrix
 	Matrix3D GetTransposed() const;
+
+	// returns the inverse matrix
 	Matrix3D GetInverse() const;
+
+	// Calculates the determinant of the matrix
 	double GetDeterminant() const;
 
+	// returns true if det(M) != 0
 	bool IsInvertible() const;
 
 
-
+	// the identity matrix
 	const static Matrix3D Identity;
+
+	// a matrix where all entries are zero
 	const static Matrix3D Zero;
 
 };

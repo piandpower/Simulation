@@ -23,13 +23,17 @@ public:
 	UFUNCTION(BlueprintPure, Category="NeighborhoodSearch")
 	static UHashNeighborsFinder * CreateHashNeighborsFinder();
 
+	// Adds static particles to the static hashtable
 	void AddStaticParticles(TArray<UStaticBorder *>& borders, double supportLength) override;
 	void AddStaticParticles(std::vector<UStaticBorder *>& borders, double supportLength) override;
 	void AddStaticParticles(UStaticBorder * border, double supportLength) override;
 
 
-	// Finds neighbors for fluid particles
+	// Finds neighbors for particles
 	void FindNeighbors(const UParticleContext& particleContext, double particleDistance, FNeighborsSearchRelations searchRelations = FNeighborsSearchRelations()) override;
+
+	// FInds neighbors at a specified position
+	FNeighborhood NeighborsOfPosition(const Vector3D& position, const UParticleContext& particleContext) const override;
 
 	// Finds neighbors for border particles
 	void FindBorderNeighbors(UStaticBorder * border, double particleDistance);

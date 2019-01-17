@@ -16,7 +16,7 @@ public:
 	~USESPHSolver() override;
 
 	UFUNCTION(BlueprintPure, Category = "Solver")
-		static USESPHSolver * CreateSESPHSolver(TArray<UAcceleration*> accelerations, float fluidStiffness = 6400.0f, UBoundaryPressure * boundaryPressure = nullptr);
+		static USESPHSolver * CreateSESPHSolver(TArray<UAcceleration*> accelerations, float fluidStiffness = 6400.0f, UBoundaryPressure * boundaryPressure = nullptr, UPressureGradient * pressureGradient = nullptr);
 
 	void ComputePressure();
 

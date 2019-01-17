@@ -60,6 +60,49 @@ void UHashNeighborsFinder::FindNeighbors(const UParticleContext& particleContext
 	FindPeriodicNeighbors(particleContext, searchRelations);
 }
 
+FNeighborhood UHashNeighborsFinder::NeighborsOfPosition(const Vector3D & position, const UParticleContext & particleContext) const
+{
+	FNeighborhood neighborhood;
+
+	int xGrid = floor(position.X / (SupportRange * particleContext.GetParticleDistance()));
+	int yGrid = floor(position.Y / (SupportRange * particleContext.GetParticleDistance()));
+	int zGrid = floor(position.Z / (SupportRange * particleContext.GetParticleDistance()));
+
+	for (int xOffset = -1; xOffset <= 1; xOffset++) {
+		for (int yOffset = -1; yOffset <= 1; yOffset++) {
+			for (int zOffset = -1; zOffset <= 1; zOffset++) {
+
+				// get hashindex of current cell
+				int hash = GetHash(xGrid + xOffset, yGrid + yOffset, zGrid + zOffset);
+
+				// search through dynamic particles like fluid and rigid bodies
+				if (DynamicHashtable.find(hash) != DynamicHashtable.end()) {
+					const std::vector<FluidNeighbor>& neighbors = DynamicHashtable.at(hash);
+					for (const FluidNeighbor& neighbor : neighbors) {
+						// check if particle is near enough
+						if ((position - neighbor.GetParticle()->Position).Size() < (SupportRange *  particleContext.GetParticleDistance())) {
+							neighborhood.FluidNeighbors.push_back(neighbor);
+						}
+					}
+				}
+
+				// Search through static particles like borders
+				if (StaticHashtable.find(hash) != StaticHashtable.end()) {
+					const std::vector<StaticBorderNeighbor>& neighbors = StaticHashtable.at(hash);
+					for (const StaticBorderNeighbor& neighbor : neighbors) {
+						// check if particle is near enough
+						if ((position - neighbor.GetParticle()->Position).Size() < (SupportRange * particleContext.GetParticleDistance())) {
+							neighborhood.StaticBorderNeighbors.push_back(neighbor);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return neighborhood;
+}
+
 
 void UHashNeighborsFinder::FindBorderNeighbors(UStaticBorder * border, double particleDistance)
 {

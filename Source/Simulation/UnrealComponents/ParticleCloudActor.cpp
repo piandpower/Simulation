@@ -608,7 +608,7 @@ void AParticleCloudActor::UpdateParticleContextVisualisation(FVisualisationInfor
 				for (const Particle& particle : *fluid->Particles) {
 					double curl = 0.0;
 					for (const FluidNeighbor& ff : particle.FluidNeighbors) {
-						curl += ff.GetParticle()->Mass / ff.GetParticle()->Density * Vector3D::CrossProduct(ff.GetParticle()->Velocity, kernel->ComputeKernelDerivative(particle, *ff.GetParticle())).Y;
+						curl += ff.GetParticle()->Mass / ff.GetParticle()->Density * Vector3D::CrossProduct(ff.GetParticle()->Velocity, kernel->ComputeGradient(particle, *ff.GetParticle())).Y;
 					}
 					curlValues.push_back(curl);
 				}

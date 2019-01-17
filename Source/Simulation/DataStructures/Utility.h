@@ -5,7 +5,7 @@
 #include <future>
 #include <numeric>
 
-#include "SceneComponents/Particle.h"
+#include "Particles/Particle.h"
 #include "Runtime/Core/Public/Async/Async.h"
 
 #include "CoreMinimal.h"

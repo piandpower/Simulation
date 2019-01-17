@@ -8,6 +8,7 @@
 
 #include "CoreMinimal.h"
 #include "RecordingCamera.h"
+#include "Sensors/Sensor.h"
 #include "UnrealComponents/ParticleCloudActor.h"
 
 #include "RecordManager.generated.h"
@@ -59,7 +60,13 @@ public:
 	~URecordManager();
 
 	UFUNCTION(BlueprintPure, Category = "Recording")
-	static URecordManager * CreateRecordManager(TArray<ARecordingCamera*> cameras, EColorVisualisation fluidColorMode = EColorVisualisation::Normal, EColorVisualisation staticBorderColorMode = EColorVisualisation::Normal, float frameRate = 60.0, int saveEachNthIteration = 0, bool takeScreenshots = false);
+	static URecordManager * CreateRecordManager(TArray<ARecordingCamera*> cameras,
+		TArray<ASensor*> sensors,
+		EColorVisualisation fluidColorMode = EColorVisualisation::Normal,
+		EColorVisualisation staticBorderColorMode = EColorVisualisation::Normal,
+		float frameRate = 60.0,
+		int saveEachNthIteration = 0,
+		bool takeScreenshots = false);
 
 	void Build(UWorld * world, ASimulator * simulator);
 
@@ -77,6 +84,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Recording")
 	void WriteSolverStatisticsToFile();
+
+	UFUNCTION(BlueprintCallable, Category = "Recording")
+	void WriteSensorDataToFile();
 
 	ASimulator * GetSimulator() const;
 
@@ -131,6 +141,12 @@ public:
 
 	AParticleCloudActor * GetParticleCloudActor();
 
+	// Flag that determines whether sensors calculate and record the properties. 
+	// Can be turned off for small performance gain.
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool SensorsActive = true;
+
+
 protected:
 
 	double FrameRate = 60.0;
@@ -151,6 +167,8 @@ protected:
 	ASimulator * Simulator;
 
 	TArray<ARecordingCamera*> Cameras;
+
+	TArray<ASensor*> Sensors;
 
 	AParticleCloudActor * ParticleVisualizer;
 

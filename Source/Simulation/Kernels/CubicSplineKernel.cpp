@@ -15,12 +15,12 @@ UCubicSplineKernel * UCubicSplineKernel::CreateCubicSplineKernel(float supportRa
 	return cubicSplineKernel;
 }
 
-double UCubicSplineKernel::ComputeKernel(const Particle & particle1, const Particle & particle2) const
+double UCubicSplineKernel::ComputeValue(const Particle & particle1, const Particle & particle2) const
 {
-	return UCubicSplineKernel::ComputeKernel(particle1.Position, particle2.Position);
+	return UCubicSplineKernel::ComputeValue(particle1.Position, particle2.Position);
 }
 
-double UCubicSplineKernel::ComputeKernel(const Vector3D& position1, const Vector3D& position2) const
+double UCubicSplineKernel::ComputeValue(const Vector3D& position1, const Vector3D& position2) const
 {
 	double q = 2 * (position1 - position2).Size() / (SupportRange * ParticleSpacing);
 
@@ -55,12 +55,12 @@ double UCubicSplineKernel::ComputeKernel(const Vector3D& position1, const Vector
 	
 }
 
-Vector3D UCubicSplineKernel::ComputeKernelDerivative(const Particle & particle1, const Particle & particle2) const
+Vector3D UCubicSplineKernel::ComputeGradient(const Particle & particle1, const Particle & particle2) const
 {
-	return UCubicSplineKernel::ComputeKernelDerivative(particle1.Position, particle2.Position);
+	return UCubicSplineKernel::ComputeGradient(particle1.Position, particle2.Position);
 }
 
-Vector3D UCubicSplineKernel::ComputeKernelDerivative(const Vector3D& position1, const Vector3D& position2) const
+Vector3D UCubicSplineKernel::ComputeGradient(const Vector3D& position1, const Vector3D& position2) const
 {
 	Vector3D PositionDifference = position1 - position2;
 	double q = 2 * PositionDifference.Size() / (SupportRange * ParticleSpacing);

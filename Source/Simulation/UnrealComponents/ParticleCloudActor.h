@@ -13,7 +13,7 @@
 
 #include "DataStructures/Utility.h"
 
-#include "SceneComponents/Particle.h"
+#include "Particles/Particle.h"
 
 #include "ParticleCloudActor.generated.h"
 
@@ -58,7 +58,7 @@ struct FVisualisationInformation {
 };
 
 
-UCLASS()
+UCLASS(BlueprintType)
 class SIMULATION_API AParticleCloudActor : public APointCloudActor
 {
 	GENERATED_BODY()

@@ -1,10 +1,13 @@
 .vs
 Binaries/
 Saved/Autosaves/
+Saved/Logs/
 Saved/Backup/
 Saved/Collections/
 Saved/Crashes/
-Saved/HardwareSurvey
+Saved/HardwareSurvey/
+Saved/Config/WorldState/
+Saved/Config/CrashReportClient
 Intermediate/
 
 Content/Developers/*.*

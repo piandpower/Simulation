@@ -114,6 +114,44 @@ void UNaiveNeighborsFinder::FindNeighbors(const UParticleContext& particleContex
 	}
 }
 
+FNeighborhood UNaiveNeighborsFinder::NeighborsOfPosition(const Vector3D& position, const UParticleContext& particleContext) const
+{
+	FNeighborhood neighborhood;
+
+	for (UFluid * neighborFluid : particleContext.GetFluids()) {
+		for (int j = 0; j < neighborFluid->Particles->size(); j++) {
+			Particle& bf = neighborFluid->Particles->at(j);
+			// if distance between particles is smaller as 2 * h, then add the particle to neighboring particles 
+			if ((position - bf.Position).Size() < (SupportRange * particleContext.GetParticleDistance())) {
+				neighborhood.FluidNeighbors.emplace_back(j, bf);
+			}
+		}
+	}
+
+	if (particleContext.GetPeriodicCondition() != nullptr) {
+		UPeriodicCondition * periodic = particleContext.GetPeriodicCondition();
+		for (int j = 0; j < periodic->GetGhostParticles().size(); j++) {
+			Particle& ghost = const_cast<Particle&>(periodic->GetGhostParticles()[j]);
+
+			if ((ghost.Position - position).Size() < SupportRange * particleContext.GetParticleDistance()) {
+				neighborhood.FluidNeighbors.emplace_back(periodic->GetReferencedParticlesIndices()[j], ghost);
+			}
+		}
+	}
+
+	for (UStaticBorder * neighborBorder : particleContext.GetStaticBorders()) {
+		for (int j = 0; j < neighborBorder->Particles->size(); j++) {
+			Particle& bb = neighborBorder->Particles->at(j);
+			// if distance between particles is smaller as 2 * h, then add the particle to neighboring particles 
+			if ((position - bb.Position).Size() < (SupportRange * particleContext.GetParticleDistance())) {
+				neighborhood.StaticBorderNeighbors.emplace_back(j, bb);
+			}
+		}
+	}
+
+	return neighborhood;
+}
+
 
 void UNaiveNeighborsFinder::AddStaticParticles(UStaticBorder * borders, double particleDistance)
 {

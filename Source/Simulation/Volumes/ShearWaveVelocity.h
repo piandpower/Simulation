@@ -20,6 +20,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float MaxVelocity;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool Integrate = true;
+
 protected:
 	UArrowComponent * PositiveArrowComponent;
 	UArrowComponent * NegativeArrowComponent;

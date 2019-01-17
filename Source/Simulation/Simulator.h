@@ -8,18 +8,18 @@
 #include <fstream>
 #include <algorithm>
 #include <iterator>
-#include <cstdio>
 
 #include "Kismet/KismetMathLibrary.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "SceneComponents/Fluid.h"
-#include "SceneComponents/StaticBorder.h"
+#include "ParticleContext/SceneComponents/Fluid.h"
+#include "ParticleContext/SceneComponents/StaticBorder.h"
 #include "NeighborsFinders/NeighborsFinder.h"
 #include "Kernels/Kernel.h"
 #include "Solver/Solver.h"
 #include "Recording/RecordManager.h"
 #include "Volumes/ScriptedVolume.h"
+#include "Recording/Sensors/Sensor.h"
 
 #include "Simulator.generated.h"
 
@@ -131,7 +131,18 @@ public:
 	~ASimulator();
 
 	UFUNCTION(BlueprintCallable)
-		void Initialize(UParticleContext * particleContext, USolver * solver, UKernel * kernelFunction, UNeighborsFinder * neighborsFinder, URecordManager * recordManager, TArray<AScriptedVolume*> volumes, float timestepFactor = 0.1, float minTimestep = 0.0001, float maxTimestep = 0.005, FString simulationName = "Fluid Simulation", bool adaptTimestepToFrameRecording = true, EDimensionality dimensionality = EDimensionality::Three);
+		void Initialize(UParticleContext * particleContext,
+			USolver * solver,
+			UKernel * kernelFunction,
+			UNeighborsFinder * neighborsFinder,
+			URecordManager * recordManager,
+			TArray<AScriptedVolume*> volumes,
+			float timestepFactor = 0.1,
+			float minTimestep = 0.0001,
+			float maxTimestep = 0.005,
+			FString simulationName = "Fluid Simulation",
+			bool adaptTimestepToFrameRecording = true,
+			EDimensionality dimensionality = EDimensionality::Three);
 
 	UFUNCTION(BlueprintCallable)
 		void StartPauseSimulation();
@@ -208,8 +219,8 @@ protected:
 	// Contains all particles including fluids and borders in a simulation domain
 	UParticleContext * ParticleContext = nullptr;
 
+	// Contains all scripted behavior of the simulation
 	TArray<AScriptedVolume*> Volumes;
-
 
 public:
 

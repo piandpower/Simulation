@@ -9,7 +9,13 @@ URecordManager::~URecordManager()
 {
 }
 
-URecordManager * URecordManager::CreateRecordManager(TArray<ARecordingCamera*> cameras, EColorVisualisation fluidColorMode, EColorVisualisation staticBorderColorMode, float frameRate, int saveEachNthIteration, bool takeScreenshots)
+URecordManager * URecordManager::CreateRecordManager(TArray<ARecordingCamera*> cameras,
+	TArray<ASensor*> sensors,
+	EColorVisualisation fluidColorMode,
+	EColorVisualisation staticBorderColorMode,
+	float frameRate,
+	int saveEachNthIteration,
+	bool takeScreenshots)
 {
 	URecordManager * cameraManager = NewObject<URecordManager>();
 	cameraManager->FrameRate = frameRate;
@@ -19,6 +25,7 @@ URecordManager * URecordManager::CreateRecordManager(TArray<ARecordingCamera*> c
 	cameraManager->TakeScreenshots = takeScreenshots;
 	cameraManager->FluidColorMode = fluidColorMode;
 	cameraManager->StaticBorderColorMode = staticBorderColorMode;
+	cameraManager->Sensors = sensors;
 
 	// prevent garbage collection
 	cameraManager->AddToRoot();
@@ -30,6 +37,10 @@ void URecordManager::Build(UWorld * world, ASimulator * simulator)
 {
 	Simulator = simulator;
 
+	for (ASensor * sensor : Sensors) {
+		sensor->Build(simulator->GetParticleContext());
+	}
+
 	ParticleVisualizer = world->SpawnActor<AParticleCloudActor>(FVector(0), FRotator(0));	
 }
 
@@ -39,8 +50,6 @@ void URecordManager::CamerasCapture(int frame, FString simulationName)
 	std::experimental::filesystem::path simulationPath = TCHAR_TO_UTF8(*(FPaths::ProjectDir() + "Simulation Recordings/" + simulationName));
 	std::experimental::filesystem::create_directory(simulationPath);
 	
-
-
 	for (int i = 0; i < Cameras.Num(); i++) {
 
 		// Create camera folder
@@ -56,7 +65,6 @@ void URecordManager::CamerasCapture(int frame, FString simulationName)
 
 void URecordManager::WriteSolverStatisticsToFile()
 {
-
 		std::ofstream file;
 		file.open(TCHAR_TO_UTF8(*(FPaths::ProjectDir() + "Solver Informations/" + GetSimulator()->GetSimulationName() + ".solverinfo")));
 
@@ -72,6 +80,9 @@ void URecordManager::WriteSolverStatisticsToFile()
 			break;
 		case IISPH:
 			file << "Solver\t" << "IISPH" << std::endl;
+			break;
+		case DFSPH:
+			file << "Solver\t" << "DFSPH" << std::endl;
 			break;
 		}
 		file << std::endl;
@@ -93,7 +104,20 @@ void URecordManager::WriteSolverStatisticsToFile()
 			file << std::endl;
 		}
 		file.close();
+}
 
+void URecordManager::WriteSensorDataToFile()
+{
+	std::experimental::filesystem::path simulationRecordingDirectory = TCHAR_TO_UTF8(*(FPaths::ProjectDir() + "Solver Informations/" + GetSimulator()->GetSimulationName()));
+	std::experimental::filesystem::create_directory(simulationRecordingDirectory);
+
+	std::experimental::filesystem::path sensorDirectory = TCHAR_TO_UTF8(*(FPaths::ProjectDir() + "Solver Informations/" + GetSimulator()->GetSimulationName() + "/Sensors"));
+	std::experimental::filesystem::create_directory(sensorDirectory);
+
+	for (int i = 0; i < Sensors.Num(); i++) {
+		ASensor * sensor = Sensors[i];
+		sensor->WriteSensorDataToFile(i, sensorDirectory);
+	}
 }
 
 ASimulator * URecordManager::GetSimulator() const
@@ -215,6 +239,13 @@ bool URecordManager::UpdateTimeAndRecordings(double deltaTime, int iteration, do
 		WriteSimulationStateToFile(iteration);
 	}
 
+	// sensors capture the current fluid attributes
+	if (SensorsActive) {
+		for (ASensor * sensor : Sensors) {
+			sensor->FindNeighbors(*GetSimulator()->GetNeighborsFinder());
+			sensor->MeasureProperty(*GetSimulator()->GetKernel());
+		}
+	}
 
 	// Should Recorder record frame?
 	if (NextRecordTime - simulatedTime < 0.00001) {

@@ -7,7 +7,10 @@ USESPHSolver::~USESPHSolver()
 {
 }
 
-USESPHSolver * USESPHSolver::CreateSESPHSolver(TArray<UAcceleration*> accelerations, float fluidStiffness, UBoundaryPressure * boundaryPressure)
+USESPHSolver * USESPHSolver::CreateSESPHSolver(TArray<UAcceleration*> accelerations,
+	float fluidStiffness,
+	UBoundaryPressure * boundaryPressure,
+	UPressureGradient * pressureGradient)
 {
 	USESPHSolver * sesphsolver = NewObject<USESPHSolver>();
 	sesphsolver->SolverType = ESolverMethod::SESPH;
@@ -15,8 +18,9 @@ USESPHSolver * USESPHSolver::CreateSESPHSolver(TArray<UAcceleration*> accelerati
 	sesphsolver->Accelerations = accelerations;
 	sesphsolver->FluidStiffness = fluidStiffness;
 	sesphsolver->LastIterationCount = 1;
-
 	sesphsolver->BoundaryPressureComputer = boundaryPressure;
+	sesphsolver->PressureGradientComputer = pressureGradient;
+
 
 	// prevent garbage collection
 	sesphsolver->AddToRoot();
@@ -108,21 +112,7 @@ void USESPHSolver::ApplyPressureAcceleration()
 	for (UFluid * fluid : GetSimulator()->GetParticleContext()->GetFluids()) {
 		ParallelFor(fluid->Particles->size(), [fluid, this](int32 i) {
 			Particle& f = fluid->Particles->at(i);
-
-			Vector3D fluidsum = { 0, 0, 0 };
-			for (const Particle& ff : f.FluidNeighbors) {
-				fluidsum -= (f.Pressure / pow(f.Fluid->GetRestDensity(), 2) + ff.Pressure / pow(ff.Fluid->GetRestDensity(), 2)) * GetKernel()->ComputeKernelDerivative(f, ff);
-			}
-			fluidsum *= f.Mass;
-
-			Vector3D solidsum = { 0, 0, 0 };
-			for (const Particle& fb : f.StaticBorderNeighbors) {
-				solidsum -= fb.Border->BorderStiffness * fb.Mass * f.Fluid->GetRestDensity() *
-					(f.Pressure / pow(f.Fluid->GetRestDensity(), 2) +
-						BoundaryPressureComputer->GetPressureValue(fb, f) / pow(f.Fluid->GetRestDensity(), 2))
-					* GetKernel()->ComputeKernelDerivative(f, fb);
-			}
-			f.Acceleration += fluidsum + solidsum;
+			f.Acceleration = -GetPressureGradient()->ComputePressureGradient(f, i) / f.Density;
 		});
 	}
 

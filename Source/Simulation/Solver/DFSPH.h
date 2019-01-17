@@ -40,7 +40,8 @@ public:
 		int minIterationDensity = 1,
 		int maxIterationDensity = 100,
 		float jacobiFactor = 0.5,
-		UBoundaryPressure * boundaryPressure = nullptr);
+		UBoundaryPressure * boundaryPressure = nullptr,
+		UPressureGradient * pressureGradient = nullptr);
 
 	void Step();
 	void ComputeSolverStatistics(bool computeSolverStats = true);

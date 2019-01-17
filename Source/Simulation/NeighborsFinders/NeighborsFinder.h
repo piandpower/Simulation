@@ -14,7 +14,6 @@ enum ENeighborhoodSearch {
 	SpatialHash
 };
 
-
 USTRUCT(BlueprintType)
 struct FNeighborsSearchRelations {
 	GENERATED_BODY()
@@ -58,6 +57,11 @@ struct FNeighborsSearchRelations {
 
 };
 
+struct FNeighborhood {
+	std::vector<FluidNeighbor> FluidNeighbors;
+	std::vector<StaticBorderNeighbor> StaticBorderNeighbors;
+};
+
 UCLASS()
 class UNeighborsFinder : public UObject {
 	GENERATED_BODY()
@@ -68,6 +72,7 @@ public:
 	void Build(double supportRange);
 
 	virtual void FindNeighbors(const UParticleContext& particleContext, double supportLength, FNeighborsSearchRelations searchRelations = FNeighborsSearchRelations());
+	virtual FNeighborhood NeighborsOfPosition(const Vector3D& position, const UParticleContext& particleContext) const;
 	virtual void AddStaticParticles(UStaticBorder * borders, double supportRange);
 	virtual void AddStaticParticles(TArray<UStaticBorder*>& borders, double supportRange);
 	virtual void AddStaticParticles(std::vector<UStaticBorder*>& borders, double supportRange);

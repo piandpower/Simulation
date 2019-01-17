@@ -1,6 +1,6 @@
 #include "PeriodicCondition.h"
 #include "ParticleContext/ParticleContext.h"
-#include "SceneComponents/Particle.h"
+#include "Particles/Particle.h"
 #include "Simulator.h"
 
 

@@ -1,8 +1,8 @@
 #pragma once
 
 
-#include "SceneComponents/Particle.h"
-#include "SceneComponents/Fluid.h"
+#include "Particles/Particle.h"
+#include "ParticleContext/SceneComponents/Fluid.h"
 #include "Kernels/Kernel.h"
 #include "NeighborsFinders/NeighborsFinder.h"
 #include "ParticleContext/ParticleContext.h"

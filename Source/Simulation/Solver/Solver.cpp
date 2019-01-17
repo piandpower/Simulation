@@ -21,6 +21,7 @@ void USolver::Build(ASimulator * simulator, TArray<AScriptedVolume*> volumes)
 	}
 
 	GetBoundaryPressure()->Build(simulator->GetDimensionality());
+	GetPressureGradient()->Build(this, simulator->GetDimensionality());
 }
 
 double USolver::ComputeAverageDensityError()
@@ -28,7 +29,10 @@ double USolver::ComputeAverageDensityError()
 	double sum = 0.0;
 	int totalParticles = 0;
 	for (UFluid * fluid : GetParticleContext()->GetFluids()) {
-		sum += ParallelSum<Particle, double>(*fluid->Particles, [](const Particle& particle) -> double { 
+		sum += ParallelSum<Particle, double>(*fluid->Particles, [](const Particle& particle) -> double {
+			if (particle.IsScripted) {
+				return 0.0;
+			}
 			return std::max(0.0, (particle.Density - particle.Fluid->GetRestDensity()));
 		}) / fluid->GetRestDensity();
 
@@ -74,6 +78,9 @@ void USolver::FindNeighbors()
 	FDateTime startTime = FDateTime::UtcNow();
 	GetNeighborsFinder()->FindNeighbors(*GetParticleContext(), Simulator->GetParticleContext()->GetParticleDistance(), GetBoundaryPressure()->GetRequiredNeighborhoods());
 	ComputationTimes.NeighborhoodSearchTime = (FDateTime::UtcNow() - startTime).GetTotalSeconds();
+
+	PressureGradientComputer->PrecomputeAllGeometryData(*GetParticleContext());
+
 }
 
 void USolver::InitializePeriodicCondition()
@@ -109,11 +116,11 @@ void USolver::ComputeDensitiesExplicit() {
 			double staticDensitySum = 0;
 
 			for (const Particle& ff : f.FluidNeighbors) {
-				fluidDensitySum += ff.Mass  * GetKernel()->ComputeKernel(f, ff);
+				fluidDensitySum += ff.Mass  * GetKernel()->ComputeValue(f, ff);
 			}
 
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				staticDensitySum += fb.Border->BorderDensityFactor * fb.Mass * GetKernel()->ComputeKernel(f, fb);
+				staticDensitySum += fb.Border->BorderDensityFactor * fb.Mass * GetKernel()->ComputeValue(f, fb);
 			}
 
 			// sum the contributions of neighbors
@@ -218,6 +225,11 @@ UNeighborsFinder * USolver::GetNeighborsFinder() const
 UBoundaryPressure * USolver::GetBoundaryPressure() const
 {
 	return BoundaryPressureComputer;
+}
+
+UPressureGradient * USolver::GetPressureGradient() const
+{
+	return PressureGradientComputer;
 }
 
 TArray<UAcceleration*> USolver::GetAccelerations() const

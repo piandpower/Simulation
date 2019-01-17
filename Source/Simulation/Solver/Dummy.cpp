@@ -7,7 +7,12 @@ UDummySolver::~UDummySolver()
 {
 }
 
-UDummySolver * UDummySolver::CreateDummySolver(TArray<UAcceleration*> accelerations, UBoundaryPressure * boundaryPressure, bool computeNeighborhoods, bool computeNonPressureAccelerations, bool computeScriptedVolumes)
+UDummySolver * UDummySolver::CreateDummySolver(TArray<UAcceleration*> accelerations,
+	UBoundaryPressure * boundaryPressure,
+	UPressureGradient * pressureGradient,
+	bool computeNeighborhoods,
+	bool computeNonPressureAccelerations,
+	bool computeScriptedVolumes)
 {
 	UDummySolver * dummySolver = NewObject<UDummySolver>();
 	dummySolver->SolverType = ESolverMethod::Dummy;
@@ -19,6 +24,7 @@ UDummySolver * UDummySolver::CreateDummySolver(TArray<UAcceleration*> accelerati
 	dummySolver->LastIterationCount = 1;
 
 	dummySolver->BoundaryPressureComputer = boundaryPressure;
+	dummySolver->PressureGradientComputer = pressureGradient;
 
 	// prevent garbage collection
 	dummySolver->AddToRoot();
@@ -44,16 +50,21 @@ void UDummySolver::Step()
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(0).Position = Vector3D(0.0, 0.0, 0.0);
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(1).Position = Vector3D(1.0, 0.0, 0.0);
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(2).Position = Vector3D(0.0, 0.0, 1.0);
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(3).Position = Vector3D(1.0, 0.0, 1.0);
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(4).Position = Vector3D(0.5, 0.0, 0.5);
 
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(0).Pressure = 100;
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(1).Pressure = 200;
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(2).Pressure = 200;
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(3).Pressure = 300;
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(4).Pressure = 200;
 
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(0).Density = 1;
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(1).Density = 1;
 		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(2).Density = 1;
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(3).Density = 1;
+		GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(4).Density = 1;
 
-		GetSimulator()->GetParticleContext()->GetStaticBorders().at(1)->Particles->at(0).Position = Vector3D(1.0, 0.0, 1.0);
 	}
 		break;
 	case Three:
@@ -72,6 +83,7 @@ void UDummySolver::Step()
 	// ComputePressure();
 	BoundaryPressureComputer->ComputeAllPressureValues(GetSimulator()->GetParticleContext(), GetKernel());
 
+	GetPressureGradient()->ComputePressureGradient(GetSimulator()->GetParticleContext()->GetFluids()[0]->Particles->at(4), 4);
 
 	if (ComputeAccelerations) {
 		FDateTime accelerationStartTime = FDateTime::UtcNow();

@@ -193,6 +193,11 @@ void Matrix3D::Transpose()
 	std::swap(S32, S23);
 }
 
+void Matrix3D::Inverse()
+{
+	*this = GetInverse();
+}
+
 Matrix3D Matrix3D::GetTransposed() const
 {
 	return Matrix3D(S11, S21, S31,

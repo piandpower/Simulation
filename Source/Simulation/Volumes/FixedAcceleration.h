@@ -22,6 +22,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector Acceleration;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool Integrate = true;
+
 protected:
 	UArrowComponent * ArrowComponent;
 

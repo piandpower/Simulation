@@ -15,7 +15,8 @@ UDFSPHSolver * UDFSPHSolver::CreateDFSPHSolver(TArray<UAcceleration*> accelerati
 	int minIterationDensity,
 	int maxIterationDensity,
 	float jacobiFactor,
-	UBoundaryPressure * boundaryPressure)
+	UBoundaryPressure * boundaryPressure,
+	UPressureGradient * pressureGradient)
 {
 	UDFSPHSolver * dfsphsolver = NewObject<UDFSPHSolver>();
 	dfsphsolver->SolverType = ESolverMethod::DFSPH;
@@ -31,6 +32,7 @@ UDFSPHSolver * UDFSPHSolver::CreateDFSPHSolver(TArray<UAcceleration*> accelerati
 	dfsphsolver->JacobiFactor = jacobiFactor;
 	dfsphsolver->Accelerations = accelerations;
 	dfsphsolver->BoundaryPressureComputer = boundaryPressure;
+	dfsphsolver->PressureGradientComputer = pressureGradient;
 
 	// prevent garbage collection
 	dfsphsolver->AddToRoot();
@@ -236,6 +238,10 @@ void UDFSPHSolver::ComputeIntermediateVelocities(bool overrideOldIntermediateVel
 
 }
 
+double CalcVelocityDivergence(const Particle& f) {
+	return 0.0;
+}
+
 void UDFSPHSolver::ComputeSourceTermsVelocityDivergence()
 {
 	for (UFluid * fluid : GetParticleContext()->GetFluids()) {
@@ -251,11 +257,11 @@ void UDFSPHSolver::ComputeSourceTermsVelocityDivergence()
 			double velocityDivergence = 0;
 
 			for (const Particle& ff : f.FluidNeighbors) {
-				velocityDivergence += ff.Mass / f.Density * (ff.Velocity - f.Velocity) * GetKernel()->ComputeKernelDerivative(f, ff);
+				velocityDivergence += ff.Mass / f.Density * (ff.Velocity - f.Velocity) * GetKernel()->ComputeGradient(f, ff);
 			}
 			for (const Particle& fb : f.StaticBorderNeighbors) {
 				// neighbor velocity should be { 0, 0, 0 } for static borders
-				velocityDivergence += fb.Mass / f.Density * (-f.Velocity) * GetKernel()->ComputeKernelDerivative(f, fb);
+				velocityDivergence += fb.Mass / f.Density * (-f.Velocity) * GetKernel()->ComputeGradient(f, fb);
 			}
 
 			Attributes[*fluid][i].SourceTerm = velocityDivergence * GetCurrentTimestep();
@@ -287,30 +293,30 @@ void UDFSPHSolver::ComputeDiagonalElement(bool clampAtZero) {
 			Vector3D innersum = { 0, 0, 0 };
 
 			for (const Particle& ff : f.FluidNeighbors) {
-				innersum -= ff.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(f, ff);
+				innersum -= ff.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				innersum -= 2 * fb.Border->BorderStiffness * fb.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(f, fb);
+				innersum -= 2 * fb.Border->BorderStiffness * fb.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(f, fb);
 			}
 
 
 			// first row of equation
 			double firstline = 0;
 			for (const Particle& ff : f.FluidNeighbors) {
-				firstline += ff.Mass * innersum * GetKernel()->ComputeKernelDerivative(f, ff);
+				firstline += ff.Mass * innersum * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			// second row of equation
 			double secondline = 0;
 			for (const Particle& ff : f.FluidNeighbors) {
-				secondline += ff.Mass * f.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(ff, f) * GetKernel()->ComputeKernelDerivative(f, ff);
+				secondline += ff.Mass * f.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(ff, f) * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			// third row of equation
 			double thirdline = 0;
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				thirdline += fb.Mass * innersum * GetKernel()->ComputeKernelDerivative(f, fb);
+				thirdline += fb.Mass * innersum * GetKernel()->ComputeGradient(f, fb);
 			}
 
 			Attributes[*fluid][i].Aff = pow(CurrentTimestep, 2) * (firstline + secondline + thirdline);
@@ -354,18 +360,7 @@ void UDFSPHSolver::UpdatePressureAcceleration() {
 	for (UFluid * fluid : GetParticleContext()->GetFluids()) {
 		ParallelFor(fluid->Particles->size(), [&](int32 i) {
 			Particle& f = fluid->Particles->at(i);
-			Vector3D sum = { 0, 0, 0 };
-			for (const Particle& ff : f.FluidNeighbors) {
-				sum -= ff.Mass * (f.Pressure / pow(f.Fluid->GetRestDensity(), 2) + ff.Pressure / pow(ff.Fluid->GetRestDensity(), 2)) * GetKernel()->ComputeKernelDerivative(f, ff);
-			}
-			for (const Particle& fb : f.StaticBorderNeighbors) {
-				// Pressure values are mirrored from fluid particles to boundary particles
-				sum -= fb.Border->BorderStiffness * fb.Mass *
-					(f.Pressure / pow(f.Fluid->GetRestDensity(), 2) +
-						BoundaryPressureComputer->GetPressureValue(fb, f) / pow(f.Fluid->GetRestDensity(), 2))
-					* GetKernel()->ComputeKernelDerivative(f, fb);
-			}
-			f.Acceleration = sum;
+			f.Acceleration = - GetPressureGradient()->ComputePressureGradient(f, i) / f.Density;
 		});
 	}
 
@@ -384,10 +379,10 @@ void UDFSPHSolver::ComputePressureAccelerationCorrection(bool clampToZeroIncompl
 				Particle& f = fluid->Particles->at(i);
 				Attributes[*fluid][i].Ap = 0;
 				for (const Particle& ff : f.FluidNeighbors) {
-					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeKernelDerivative(f, ff);
+					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeGradient(f, ff);
 				}
 				for (const Particle& fb : f.StaticBorderNeighbors) {
-					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeKernelDerivative(f, fb);
+					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeGradient(f, fb);
 				}
 			});
 		}
@@ -400,10 +395,10 @@ void UDFSPHSolver::ComputePressureAccelerationCorrection(bool clampToZeroIncompl
 
 				Attributes[*fluid][i].Ap = 0;
 				for (const Particle& ff : f.FluidNeighbors) {
-					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeKernelDerivative(f, ff);
+					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeGradient(f, ff);
 				}
 				for (const Particle& fb : f.StaticBorderNeighbors) {
-					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeKernelDerivative(f, fb);
+					Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeGradient(f, fb);
 				}
 			});
 		}
@@ -458,10 +453,10 @@ void UDFSPHSolver::ComputePredictedDensities()
 			double velocityDivergence = 0.0;
 
 			for (FluidNeighbor& ff : f.FluidNeighbors) {
-				velocityDivergence += ff.GetParticle()->Mass * (Attributes[*ff.GetFluid()][ff].IntermediateVelocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeKernelDerivative(f.Position, ff.GetParticle()->Position);
+				velocityDivergence += ff.GetParticle()->Mass * (Attributes[*ff.GetFluid()][ff].IntermediateVelocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeGradient(f.Position, ff.GetParticle()->Position);
 			}
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				velocityDivergence += fb.Border->BorderDensityFactor * fb.Mass * (fb.Velocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeKernelDerivative(f, fb);
+				velocityDivergence += fb.Border->BorderDensityFactor * fb.Mass * (fb.Velocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeGradient(f, fb);
 			}
 			Attributes[*fluid][i].IntermediateDensity = f.Density - GetCurrentTimestep() * velocityDivergence;
 		});

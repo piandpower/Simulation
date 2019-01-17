@@ -4,8 +4,8 @@
 
 #include <vector>
 
-#include "SceneComponents/Fluid.h"
-#include "SceneComponents/StaticBorder.h"
+#include "ParticleContext/SceneComponents/Fluid.h"
+#include "ParticleContext/SceneComponents/StaticBorder.h"
 
 #include "Periodic/PeriodicCondition.h"
 

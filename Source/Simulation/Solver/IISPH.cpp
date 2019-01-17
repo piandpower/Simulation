@@ -11,7 +11,8 @@ UIISPHSolver * UIISPHSolver::CreateIISPHSolver(TArray<UAcceleration*> accelerati
 	int minIteration,
 	int maxIteration,
 	float jacobiFactor,
-	UBoundaryPressure * boundaryPressure)
+	UBoundaryPressure * boundaryPressure,
+	UPressureGradient * pressureGradient)
 {
 	UIISPHSolver * iisphsolver = NewObject<UIISPHSolver>();
 	iisphsolver->SolverType = ESolverMethod::IISPH;
@@ -23,6 +24,8 @@ UIISPHSolver * UIISPHSolver::CreateIISPHSolver(TArray<UAcceleration*> accelerati
 	iisphsolver->JacobiFactor = jacobiFactor;
 	iisphsolver->Accelerations = accelerations;
 	iisphsolver->BoundaryPressureComputer = boundaryPressure;
+	iisphsolver->PressureGradientComputer = pressureGradient;
+
 
 	// prevent garbage collection
 	iisphsolver->AddToRoot();
@@ -184,11 +187,11 @@ void UIISPHSolver::ComputeSourceTerms()
 			double velocityDivergence = 0;
 
 			for (FluidNeighbor& ff : f.FluidNeighbors) {
-				velocityDivergence += ff.GetParticle()->Mass * (Attributes[*ff.GetFluid()][ff].IntermediateVelocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeKernelDerivative(f, ff);
+				velocityDivergence += ff.GetParticle()->Mass * (Attributes[*ff.GetFluid()][ff].IntermediateVelocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeGradient(f, ff);
 			}
 			for (const Particle& fb : f.StaticBorderNeighbors) {
 				// neighbor velocity should be { 0, 0, 0 } for static borders
-				velocityDivergence += fb.Border->BorderDensityFactor * fb.Mass * (fb.Velocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeKernelDerivative(f, fb);
+				velocityDivergence += fb.Border->BorderDensityFactor * fb.Mass * (fb.Velocity - Attributes[*fluid][i].IntermediateVelocity) * GetKernel()->ComputeGradient(f, fb);
 			}
 
 			Attributes[*fluid][i].SourceTerm = f.Fluid->GetRestDensity() - (f.Density - CurrentTimestep * velocityDivergence);
@@ -210,30 +213,30 @@ void UIISPHSolver::ComputeDiagonalElement() {
 			Vector3D innersum = { 0, 0, 0 };
 
 			for (const Particle& ff : f.FluidNeighbors) {
-				innersum -= ff.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(f, ff);
+				innersum -= ff.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				innersum -= 2 * fb.Border->BorderStiffness * fb.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(f, fb);
+				innersum -= 2 * fb.Border->BorderStiffness * fb.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(f, fb);
 			}
 
 
 			// first row of equation
 			double firstline = 0;
 			for (const Particle& ff : f.FluidNeighbors) {
-				firstline += ff.Mass * innersum * GetKernel()->ComputeKernelDerivative(f, ff);
+				firstline += ff.Mass * innersum * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			// second row of equation
 			double secondline = 0;
 			for (const Particle& ff : f.FluidNeighbors) {
-				secondline += ff.Mass * f.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeKernelDerivative(ff, f) * GetKernel()->ComputeKernelDerivative(f, ff);
+				secondline += ff.Mass * f.Mass / pow(f.Fluid->GetRestDensity(), 2) * GetKernel()->ComputeGradient(ff, f) * GetKernel()->ComputeGradient(f, ff);
 			}
 
 			// third row of equation
 			double thirdline = 0;
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				thirdline += fb.Mass * innersum * GetKernel()->ComputeKernelDerivative(f, fb);
+				thirdline += fb.Mass * innersum * GetKernel()->ComputeGradient(f, fb);
 			}
 
 			Attributes[*fluid][i].Aff = pow(CurrentTimestep, 2) * (firstline + secondline + thirdline);
@@ -279,18 +282,7 @@ void UIISPHSolver::UpdatePressureAcceleration() {
 	for (UFluid * fluid : GetParticleContext()->GetFluids()) {
 		ParallelFor(fluid->Particles->size(), [&](int32 i) {
 			Particle& f = fluid->Particles->at(i);
-			Vector3D sum = { 0, 0, 0 };
-			for (const Particle& ff : f.FluidNeighbors) {
-				sum -= ff.Mass * (f.Pressure / pow(f.Fluid->GetRestDensity(), 2) + ff.Pressure / pow(ff.Fluid->GetRestDensity(), 2)) * GetKernel()->ComputeKernelDerivative(f, ff);
-			}
-			for (const Particle& fb : f.StaticBorderNeighbors) {
-				// Pressure values are mirrored from fluid particles to boundary particles
-				sum -= fb.Border->BorderStiffness * fb.Mass *
-					(f.Pressure / pow(f.Fluid->GetRestDensity(), 2) +
-						BoundaryPressureComputer->GetPressureValue(fb, f) / pow(f.Fluid->GetRestDensity(), 2))
-					* GetKernel()->ComputeKernelDerivative(f, fb);
-			}
-			f.Acceleration = sum;
+			f.Acceleration = -GetPressureGradient()->ComputePressureGradient(f, i) / f.Density;
 		});
 	}
 
@@ -307,10 +299,10 @@ void UIISPHSolver::ComputePressureAccelerationCorrection()
 
 			Attributes[*fluid][i].Ap = 0;
 			for (const Particle& ff : f.FluidNeighbors) {
-				Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeKernelDerivative(f, ff);
+				Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * ff.Mass * (f.Acceleration - ff.Acceleration) * GetKernel()->ComputeGradient(f, ff);
 			}
 			for (const Particle& fb : f.StaticBorderNeighbors) {
-				Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeKernelDerivative(f, fb);
+				Attributes[*fluid][i].Ap += pow(CurrentTimestep, 2) * fb.Mass * f.Acceleration * GetKernel()->ComputeGradient(f, fb);
 			}
 		});
 	}
