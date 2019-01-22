@@ -8,9 +8,9 @@ void UCorrectedKernelPressureGradient::PrecomputeAllGeometryData(const UParticle
 	InvertedCorrectionMatrices.reserve(particleContext.GetFluids().size());
 	for (UFluid * fluid : particleContext.GetFluids()) {
 		InvertedCorrectionMatrices.push_back(std::vector<Matrix3D>());
-		InvertedCorrectionMatrices.back().reserve(fluid->Particles->size());
+		InvertedCorrectionMatrices.back().resize(fluid->Particles->size());
 
-		for (int i = 0; i < fluid->Particles->size(); i++) {
+		ParallelFor(fluid->Particles->size(), [&](int32 i) {
 			Particle& f = fluid->Particles->at(i);
 
 			Matrix3D correctionMatrix = Matrix3D::Zero;
@@ -26,7 +26,9 @@ void UCorrectedKernelPressureGradient::PrecomputeAllGeometryData(const UParticle
 			switch (Dimensionality) {
 			case EDimensionality::One:
 				if (1 / correctionMatrix.S11 > Epsilon1D) {
-					correctionMatrix.Inverse();
+					correctionMatrix = Matrix3D(1 / correctionMatrix.S11, 0.0, 0.0,
+						0.0, 0.0, 0.0,
+						0.0, 0.0, 0.0);
 				}
 				else {
 					correctionMatrix = Matrix3D::Identity;
@@ -60,8 +62,8 @@ void UCorrectedKernelPressureGradient::PrecomputeAllGeometryData(const UParticle
 				}
 				break;
 			}
-			InvertedCorrectionMatrices.back().emplace_back(correctionMatrix);
-		}
+			InvertedCorrectionMatrices.back()[i] = correctionMatrix;
+		});
 	}
 }
 

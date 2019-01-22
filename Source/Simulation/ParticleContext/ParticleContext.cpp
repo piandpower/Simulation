@@ -81,7 +81,7 @@ const std::vector<UStaticBorder*>& UParticleContext::GetStaticBorders() const
 	return StaticBorders;
 }
 
-const TArray<UFluid*> UParticleContext::GetFluidsBlueprint() const
+TArray<UFluid*> UParticleContext::GetFluidsBlueprint() const
 {
 	TArray<UFluid*> fluids;
 
@@ -90,7 +90,7 @@ const TArray<UFluid*> UParticleContext::GetFluidsBlueprint() const
 	return fluids;
 }
 
-const TArray<UStaticBorder*> UParticleContext::GetStaticBordersBlueprint() const
+TArray<UStaticBorder*> UParticleContext::GetStaticBordersBlueprint() const
 {
 	TArray<UStaticBorder*> borders;
 

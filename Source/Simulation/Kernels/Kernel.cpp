@@ -14,10 +14,16 @@ double UKernel::GetSupportRange() const
 	return SupportRange;
 }
 
+void UKernel::ComputePrefactor()
+{
+	throw("Thisis an abstrakt function and should never be called");
+}
+
 void UKernel::Build(double particleSpacing, EDimensionality dimensionality)
 {
 	ParticleSpacing = particleSpacing;
 	Dimensionality = dimensionality;
+	ComputePrefactor();
 }
 
 double UKernel::ComputeValue(const Particle & particle1, const Particle & particle2) const

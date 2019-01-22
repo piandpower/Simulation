@@ -277,7 +277,7 @@ void UFluid::AddParticle(const Particle& particle)
 	Particles->push_back(particle);
 }
 
-void UFluid::AddParticle(FVector position, FVector velocity)
+void UFluid::AddParticle(FVector position, FVector velocity, bool updateVisual)
 {
 
 	double mass;
@@ -295,6 +295,10 @@ void UFluid::AddParticle(FVector position, FVector velocity)
 	}
 
 	Particles->emplace_back((Vector3D)position, (Vector3D)velocity, mass, this);
+
+	if (updateVisual) {
+		GetParticleContext()->UpdateVisual();
+	}
 }
 
 void UFluid::AddParticles(const std::vector<FVector>& positions, const std::vector<FVector>& velocities) {

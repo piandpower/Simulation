@@ -47,7 +47,7 @@ void UStaticBorder::Build(UParticleContext * particleContext, ASimulator * simul
 	CalculateMasses();
 }
 
-UStaticBorder* UStaticBorder::CreateStaticBorderFromLine(FVector start, FVector end, float borderDensityFactor, float borderStiffness, float borderVolumeFactor, float borderViscosity, FVector ghostVelocity)
+UStaticBorder* UStaticBorder::CreateStaticBorderFromLine(FVector start, FVector end, int thickness, float borderDensityFactor, float borderStiffness, float borderVolumeFactor, float borderFriction, FVector ghostVelocity)
 {
 	UStaticBorder * staticBorder = NewObject<UStaticBorder>();
 	// prevent garbage collection
@@ -59,12 +59,13 @@ UStaticBorder* UStaticBorder::CreateStaticBorderFromLine(FVector start, FVector 
 	staticBorder->BorderStiffness = borderStiffness;
 	staticBorder->BorderVolumeFactor = borderVolumeFactor;
 	staticBorder->BorderDensityFactor = borderDensityFactor;
-	staticBorder->BorderViscosity = borderViscosity;
+	staticBorder->BorderFriction = borderFriction;
 
 	// save for building later
 	staticBorder->SpawnSource = ESpawnSource::Line;
 	staticBorder->Start = start;
 	staticBorder->End = end;
+	staticBorder->Thickness = thickness;
 	staticBorder->GhostVelocity = ghostVelocity;
 
 	return staticBorder;
@@ -82,7 +83,7 @@ UStaticBorder* UStaticBorder::CreateStaticBorderFromPositions(TArray<FVector> po
 	staticBorder->BorderStiffness = borderStiffness;
 	staticBorder->BorderVolumeFactor = borderVolumeFactor;
 	staticBorder->BorderDensityFactor = borderDensityFactor;
-	staticBorder->BorderViscosity = borderViscosity;
+	staticBorder->BorderFriction = borderViscosity;
 
 	// save for building later
 	staticBorder->SpawnSource = ESpawnSource::Positions;
@@ -104,7 +105,7 @@ UStaticBorder* UStaticBorder::CreateStaticBorderFromMesh(UStaticMesh * mesh, FTr
 	staticBorder->BorderStiffness = borderStiffness;
 	staticBorder->BorderVolumeFactor = borderVolumeFactor;
 	staticBorder->BorderDensityFactor = borderDensityFactor;
-	staticBorder->BorderViscosity = borderViscosity;
+	staticBorder->BorderFriction = borderViscosity;
 
 
 	// save for building later
@@ -126,7 +127,7 @@ UStaticBorder* UStaticBorder::CreateStaticBorderFromMultipleMeshes(TArray<UStati
 	staticBorder->BorderStiffness = borderStiffness;
 	staticBorder->BorderVolumeFactor = borderVolumeFactor;
 	staticBorder->BorderDensityFactor = borderDensityFactor;
-	staticBorder->BorderViscosity = borderViscosity;
+	staticBorder->BorderFriction = borderViscosity;
 
 
 	// save for building later
@@ -169,7 +170,10 @@ void UStaticBorder::BuildStaticBorderFromLine() {
 		if ((i * direction).SizeSquared() > distance) {
 			break;
 		}
-		Particles->emplace_back((Vector3D)(Start + i * direction), 0, this, (Vector3D)GhostVelocity);
+		for (int j = 0; j < Thickness; j++) {
+			Vector3D thicknessOffset = Vector3D(static_cast<double>((End - Start).Z), 0.0, static_cast<double>(-(End - Start).X)).Normalized() * GetParticleContext()->GetParticleDistance() * j;
+			Particles->emplace_back(static_cast<Vector3D>(Start + i * direction) + thicknessOffset, 0, this, (Vector3D)GhostVelocity);
+		}
 	}
 }
 
@@ -273,7 +277,7 @@ void UStaticBorder::WriteStaticBorderToFile(std::string file)
 
 	staticBorderFile << "Static Border" << std::endl;
 	staticBorderFile << "Stiffness:\t" << BorderStiffness << std::endl;
-	staticBorderFile << "Viscosity:\t" << BorderViscosity << std::endl;
+	staticBorderFile << "Viscosity:\t" << BorderFriction << std::endl;
 	staticBorderFile << "Particles" << std::endl;
 	for (Particle & particle : *Particles) {
 		staticBorderFile << "Mass: " << particle.Mass << "\t" << "Position: " << particle.Position.ToString() << std::endl;

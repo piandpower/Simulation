@@ -238,9 +238,14 @@ public:
 
 protected:
 
-	double MinTimestep;
-	double MaxTimestep;
-	double CFLNumber;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float MinTimestep;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float MaxTimestep;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float CFLNumber;
 
 	double SimulatedTime;
 	int IterationCount;

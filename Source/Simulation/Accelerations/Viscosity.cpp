@@ -36,7 +36,7 @@ void UViscosity::ApplyAcceleration(UParticleContext * particleContext)
 				// Mimic ghost velocities
 				Vector3D vij = f.Velocity - fb.Velocity;
 				Vector3D xij = f.Position - fb.Position;
-				sum += fb.Border->BorderViscosity * fb.Mass / f.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeGradient(f, fb)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
+				sum += fb.Border->BorderFriction * fb.Mass / f.Fluid->GetRestDensity() * vij * (xij * GetKernel()->ComputeGradient(f, fb)) / ((xij* xij) + 0.01 * pow(GetKernel()->GetParticleSpacing(), 2));
 			}
 
 			f.Acceleration += 2 * sum;

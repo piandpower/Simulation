@@ -57,7 +57,7 @@ public:
 	void AddParticle(const Particle& particle);
 
 	UFUNCTION(BlueprintCallable)
-		void AddParticle(FVector position, FVector velocity);
+		void AddParticle(FVector position, FVector velocity, bool updateVisual = false);
 
 	void AddParticles(const std::vector<FVector>& positions, const std::vector<FVector>& velocities);
 

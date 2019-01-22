@@ -33,9 +33,9 @@ public:
 	const std::vector<UStaticBorder*>& GetStaticBorders() const;
 
 	UFUNCTION(BlueprintPure)
-	const TArray<UFluid*> GetFluidsBlueprint() const;
+	TArray<UFluid*> GetFluidsBlueprint() const;
 	UFUNCTION(BlueprintPure)
-	const TArray<UStaticBorder*> GetStaticBordersBlueprint() const;
+	TArray<UStaticBorder*> GetStaticBordersBlueprint() const;
 
 	UFUNCTION(BlueprintCallable)
 	void AddFluid(UFluid* fluid);

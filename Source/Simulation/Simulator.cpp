@@ -248,7 +248,7 @@ void ASimulator::TestSimulation()
 		for (Particle & particle : *fluid->Particles) {
 
 			// Skip particle if there aren't enough neighbor particles
-			if (particle.FluidNeighbors.size() < 48) {
+			if (particle.FluidNeighbors.size() < 10) {
 				continue;
 			}
 

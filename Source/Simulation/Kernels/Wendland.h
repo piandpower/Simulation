@@ -2,16 +2,16 @@
 
 #include "Kernel.h"
 
-#include "CubicSplineKernel.generated.h"
+#include "Wendland.generated.h"
 
 UCLASS()
-class UCubicSplineKernel : public UKernel {
+class UWendland : public UKernel {
 	GENERATED_BODY()
 public:
-	~UCubicSplineKernel() override;
+	~UWendland() override;
 
 	UFUNCTION(BlueprintPure)
-	static UCubicSplineKernel * CreateCubicSplineKernel(float supportRange = 2.f);
+	static UWendland * CreateWendlandKernel(float supportRange = 2.f);
 
 	double ComputeValue(const Particle& particle1, const Particle& particle2) const override;
 	double ComputeValue(const Vector3D& position1, const Vector3D& position2) const override;

@@ -27,6 +27,8 @@ public:
 
 protected:
 
+	virtual void ComputePrefactor();
+
 	double ParticleSpacing;
 
 	// Specifies the range the kernel function is > 0. Support range is always multiplied with particle spacing

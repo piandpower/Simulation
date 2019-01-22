@@ -82,7 +82,7 @@ public:
 
 protected:
 
-	// Support range in particle Units. Scales how far the neighborhoos is computed
+	// Support range in particle Units. Scales how far the neighborhood is computed
 	double SupportRange;
 
 	ENeighborhoodSearch NeighborsFinderType;

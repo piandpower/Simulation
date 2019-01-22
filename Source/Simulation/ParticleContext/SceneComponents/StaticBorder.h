@@ -46,7 +46,7 @@ public:
 	void Build(UParticleContext * particleContext, ASimulator * simulator);
 
 	UFUNCTION(BlueprintPure)
-		static UStaticBorder * CreateStaticBorderFromLine(FVector start, FVector end, float borderDensityFactor = 1.0, float borderStiffness = 1.0, float borderVolumeFactor = 1.0, float borderViscosity = 0.04, FVector ghostVelocity = FVector( 0, 0, 0 ));
+		static UStaticBorder * CreateStaticBorderFromLine(FVector start, FVector end, int thickness = 1, float borderDensityFactor = 1.0, float borderStiffness = 1.0, float borderVolumeFactor = 1.0, float borderViscosity = 0.04, FVector ghostVelocity = FVector( 0, 0, 0 ));
 
 	UFUNCTION(BlueprintPure)
 		static UStaticBorder * CreateStaticBorderFromPositions(TArray<FVector> positions, FTransform transform, float borderDensityFactor = 1.0, float borderStiffness = 1.0, float borderVolumeFactor = 1.0, float borderViscosity = 0.04);
@@ -89,6 +89,7 @@ protected:
 
 	// parameters and functions for Building
 	FVector Start, End, GhostVelocity;
+	int Thickness;
 	TArray<FVector> Positions;
 	TArray<FTransform> Transforms;
 	TArray<UStaticMesh *> Meshes;
@@ -111,7 +112,7 @@ public:
 
 	double BorderStiffness;
 
-	double BorderViscosity;
+	double BorderFriction;
 
 	double BorderVolumeFactor;
 
